@@ -2,7 +2,7 @@ import { useRef, useEffect, useState, useContext} from "react"
 import AuthContext from "../context/AuthProvider";
 import axios from "../api/Axios.js"
 
-const LOGIN_URL = '/auth';
+const LOGIN_URL = '/theCanchita/generateToken';
 
 const Login = () => {
 
@@ -29,7 +29,7 @@ const Login = () => {
 
         try{
             const response = await axios.post(LOGIN_URL, 
-            JSON.stringify({user, pwd}),
+            JSON.stringify({username: user, password : pwd}),
             {
             headers: {'Content-Type' : 'application/json'},
             withCredentials: true
