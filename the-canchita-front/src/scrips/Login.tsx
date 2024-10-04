@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState, useContext} from "react"
 import AuthContext from "../context/AuthProvider";
-import axios from "../api/Axios"
+import axios from "../api/Axios.js"
 
 const LOGIN_URL = '/auth';
 
@@ -17,18 +17,15 @@ const Login = () => {
     const [success, setSuccess] = useState(false);
 
     useEffect(() => {
-         if(userRef.current){
-             userRef.current.focus();
-         }
+        userRef.current.focus();
      }, []) 
-
 
     useEffect(() => {
         setErrMsg('');
         }, [user, pwd]);
 
-    const handleSubmit = async (e) => {
-        e.peventDefault();
+    const handleSubmit = async (e:Event) => {
+        e.preventDefault();
 
         try{
             const response = await axios.post(LOGIN_URL, 
@@ -58,12 +55,9 @@ const Login = () => {
             }
             errRef.current.focus();
         }
-
-        
     }
 
     return (
-
         <>
             {success ? (
                 <section>
@@ -84,7 +78,7 @@ const Login = () => {
                 <input 
                     type="text" 
                     id="username"
-                    ref={useRef}
+                    ref={userRef}
                     autoComplete="off"
                     onChange={(e) => setUser(e.target.value)}
                     value={user}
@@ -95,7 +89,6 @@ const Login = () => {
                 <input 
                     type="password" 
                     id="password"
-                    ref={useRef}
                     onChange={(e) => setPwd(e.target.value)}
                     value={pwd}
                     required
