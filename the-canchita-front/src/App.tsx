@@ -1,5 +1,5 @@
 
-import { Login } from './scrips/Login'
+import Login from './scrips/Login'
 import './App.css'
 
 function App() {

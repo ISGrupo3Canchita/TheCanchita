@@ -1,18 +1,27 @@
-import { useRef, useEffect, useState } from "react"
+import { useRef, useEffect, useState, useContext} from "react"
+import AuthContext from "../context/AuthProvider";
+import axios from "../api/Axios"
 
-export const Login = () => {
+const LOGIN_URL = '/auth';
 
-    const userRef = useRef;
-    const errRef = useRef;
+const Login = () => {
+
+    const { setAuth } = useContext(AuthContext);
+    const userRef = useRef();
+    const errRef = useRef();
+
 
     const [user, setUser] = useState('');
     const [pwd, setPwd] = useState('');
     const [errMsg, setErrMsg] = useState('');
-    const [sucess, setSucess] = useState(false);
+    const [success, setSuccess] = useState(false);
 
     useEffect(() => {
-        userRef.current.focus();
-    }, []) 
+         if(userRef.current){
+             userRef.current.focus();
+         }
+     }, []) 
+
 
     useEffect(() => {
         setErrMsg('');
@@ -20,18 +29,43 @@ export const Login = () => {
 
     const handleSubmit = async (e) => {
         e.peventDefault();
-        console.log(user, pwd);
-        setUser('');
-        setPwd(''); 
-        setSucess(true);
+
+        try{
+            const response = await axios.post(LOGIN_URL, 
+            JSON.stringify({user, pwd}),
+            {
+            headers: {'Content-Type' : 'application/json'},
+            withCredentials: true
+            });
+            console.log(JSON.stringify(response?.data));
+             //console.log(JSON.stringify(response));
+            const accessToken = response?.data?.accessToken;
+            const roles = response?.data?.roles;
+            setAuth({ user, pwd, roles, accessToken });
+            setUser('');
+            setPwd(''); 
+            setSuccess(true);
+
+        } catch(err) {
+            if(!err?.response ) {
+                setErrMsg('No responde el server')
+            }else if(err.response?.status === 400){
+                setErrMsg('El usuario o la contraseña no es la esperada');
+            }else if(err.response?.status === 401){
+                setErrMsg('El usuario no está autorizado')
+            } else {
+                setErrMsg('Falló al ingresar')
+            }
+            errRef.current.focus();
+        }
+
+        
     }
-
-
 
     return (
 
         <>
-            {sucess ? (
+            {success ? (
                 <section>
                     <h1> estas logueado</h1>
                     <p>
@@ -77,4 +111,4 @@ export const Login = () => {
 
 }
 
-// segui a partir del minuto: 14:00 del video: https://www.youtube.com/watch?v=X3qyxo_UTR4
+export default Login
