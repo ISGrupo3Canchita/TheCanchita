@@ -1,6 +1,6 @@
 
-import Login from './scrips/Login'
-import './App.css'
+import Login from './Componentes/Login'
+import './index.css'
 
 function App() {
 
