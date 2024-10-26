@@ -1,7 +1,7 @@
-import { useRef, useState } from "react"
+import { useRef } from "react"
 import { UserRegistro } from "../Modelo/UserRegistro";
-import { Ingresar } from "../api/Ingresar";
 import { RegistroUsuario } from "../api/Registro";
+import { Link } from "react-router-dom";
 
 const Registro =()=>{
 
@@ -82,22 +82,9 @@ const Registro =()=>{
                             Registrarme
                         </button>
                     </form>
+                    <p><Link className="link-opacity-50-hover" to='/'>No Man Ya Estoy Registrado</Link></p>
                 </div>
             </section>
-            {/* <section>
-                <div className="container mt-3">
-                    <h2>Card Image</h2>
-                    <p>Image at the top (card-img-top):</p>
-                    <div className="card" >
-                        <img className="card-img-top" src="../bootstrap4/img_avatar1.png" alt="Card image" />
-                        <div className="card-body">
-                            <h4 className="card-title">John Doe</h4>
-                            <p className="card-text">Some example text some example text. John Doe is an architect and engineer</p>
-                            <a href="#" className="btn btn-primary">See Profile</a>
-                        </div>
-                    </div>
-                </div>
-            </section> */}
         </>
     )
 

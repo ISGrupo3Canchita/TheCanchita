@@ -1,5 +1,6 @@
 import { useRef} from "react"
 import { Ingresar } from "../api/Ingresar.ts";
+import { Link } from "react-router-dom";
 
 
 const Login = () => {
@@ -43,8 +44,7 @@ const Login = () => {
                             onClick={handleIngreso}> 
                         Ingresar 
                     </button>
-                    {/* <Link className="link-opacity-50-hover" to={<Registro/>}></Link> */}
-                    <p><a className="link-opacity-50-hover" href="#" >Quiero Registrarme</a></p>
+                    <p><Link className="link-opacity-50-hover" to='/registro'>Quiero Registrarme</Link></p>
                 </form>
             </div>
 
