@@ -9,7 +9,6 @@ const Registro =()=>{
     const inputEmailRef = useRef<HTMLInputElement>(null);
     const inputTelefonoRef = useRef<HTMLInputElement>(null);
     const inputConstraseñaRef = useRef<HTMLInputElement>(null);
-    const inputConfirmarConstraseñaRef = useRef<HTMLInputElement>(null);
 
 
     const handlerBotonRegistro = ()=>{
@@ -63,15 +62,6 @@ const Registro =()=>{
                             className="form-control"
                             type="text"
                             placeholder="********" 
-                            /></label>
-                        </div>
-                        <div className="mb-3 mt-3">
-                            <label className="form-label">Confirmar la Contraseña
-                            <input
-                                ref={inputConfirmarConstraseñaRef}
-                                className="form-control"
-                                type="text"
-                                placeholder="Lo mismo que antes"
                             /></label>
                         </div>
                         <button

@@ -12,5 +12,13 @@ export const Ingresar= async(user:String,pwd:String) => {
                             headers: {'Content-Type' : 'application/json'},
                             withCredentials: true
                          });
-    console.log(response)
+    const datosUsuario={
+            nombre:response.data.nombre,
+            email:response.data.email,
+            rol:response.data.rol,
+            telefono:response.data.rol,
+            cantidadReserva:response.data.cantidadReserva,
+            token:response.data.token
+    }
+    return datosUsuario
 }
