@@ -1,116 +1,63 @@
-import { useRef, useEffect, useState, useContext} from "react"
-import UserContext from "../Context/UserProvider.tsx";
-import axios from "../api/Axios.ts"
+import { useRef } from "react"
+import { Ingresar } from "../api/Ingresar.ts";
+import { Link } from "react-router-dom";
+import { UsuarioContextoValue } from "../Contexto/UsuarioContextoValue.ts";
+import { PaginaUsuario } from "./PaginaUsuario.tsx";
 
-const LOGIN_URL = '/theCanchita/generateToken';
 
-const Login = () => {
 
-    const { setUser} = useContext(UserContext);
+export const Login = (ctxUsuario:UsuarioContextoValue,) => {
 
-    const inputRef = useRef<HTMLInputElement>(null);
-    const errRef = useRef<HTMLParagraphElement>(null);
 
-    const [userLogin, setUserLogin] = useState('');
-    const [pwdLogin, setPwdLogin] = useState('');
-    const [errMsg, setErrMsg] = useState('');
+    const inputNombreRef = useRef<HTMLInputElement>(null);
+    const inputContraseñaRef = useRef<HTMLInputElement>(null);
 
-    const [success, setSuccess] = useState(false);
-
-    useEffect(() => {
-        inputRef.current!.focus();
-     }, []) 
-
-    useEffect(() => {
-        setErrMsg('');
-        }, [userLogin, pwdLogin]);
-
-    const handleSubmit = async (e:Event) => {
-        e.preventDefault();
-
-        try{
-            const response = await axios.post(LOGIN_URL, 
-                JSON.stringify({username: userLogin, password : pwdLogin}),
-                {
-                headers: {'Content-Type' : 'application/json'},
-                withCredentials: true
-                });
-            console.log(JSON.stringify(response?.data));
-            console.log(JSON.stringify(response));
-            const accessToken = response?.data?.token;
-            const roles = response?.data?.roles;
-            const name = response?.data?.name;
-
-            const usuarioAuth={name:name,rol:roles,token:accessToken};
-            setUser(usuarioAuth)
-
-            setUserLogin('')
-            setPwdLogin(''); 
-            setSuccess(true);
-
-        } catch(err) {
-            if(!err?.response ) {
-                setErrMsg('No responde el server')
-            }else if(err.response?.status === 400){
-                setErrMsg('El usuario o la contraseña no es la esperada');
-            }else if(err.response?.status === 401){
-                setErrMsg('El usuario no está autorizado')
-            } else {
-                setErrMsg('Falló al ingresar')
-            }
-            errRef.current!.focus();
-        }
+    const handleIngreso = async() => {
+       const usuarioRespuesta= await Ingresar(inputNombreRef.current!.value,inputContraseñaRef.current!.value);
+       ctxUsuario.setUsuario(usuarioRespuesta)
     }
 
+    
     return (
         <>
-            {success ? (
-                <section>
-
-                    {
-                    //TODO aca voy a la pagina inicio
-                    }
-
-                    <h1> estas logueado</h1>
-                    <p>
-                        <a href="#"> Volver </a>
-                    </p>
-                </section>
-            ): (
-            <section>
-                <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">
-                {errMsg}
-                </p>
-                <h1> Logueate </h1>
-                <form onSubmit={handleSubmit} >
-                    <label htmlFor="username">Username:</label>
-                    <input 
-                        ref={inputRef}
-                        type="text" 
-                        id="username"
-                        autoComplete="off"
-                        onChange={(e) => setUserLogin(e.target.value)}
-                        value={userLogin}
-                        required
-                    />
-                    
-                    <label htmlFor="password">Contraseña:</label>
-                    <input 
-                        type="password" 
-                        id="password"
-                        onChange={(e) => setPwdLogin(e.target.value)}
-                        value={pwdLogin}
-                        required
-                    />
-                    <button > Ingresar </button>
-                </form>
-
-            </section>   
-        )}
+            {ctxUsuario.usuario.codigoRespuesta === 200 ? (
+                    <section>
+                        <PaginaUsuario/>
+                    </section>
+                ) : ( 
+                    <section>
+                        <div className="container pt-5 text-center">
+                            <h2> Ingresar a The Canchita Club</h2>
+                            <form>
+                                <div className="mb-3 mt-3">
+                                    <label className="form-label">Nombre de Usuario
+                                    <input className="form-control" id="nombre"
+                                        ref={inputNombreRef}
+                                        type="text"
+                                        placeholder="Tu Email"
+                                        required
+                                    /></label>
+                                </div>
+                                <div className="mb-3">
+                                    <label className="form-label" id="contraseña">Contraseña:
+                                    <input className="form-control" id="contraseña"
+                                        ref={inputContraseñaRef}
+                                        type="text"
+                                        placeholder="del 1 al 8"
+                                        required
+                                    /></label>
+                                </div>
+                                <button className="btn btn-success" 
+                                        type="button"
+                                        onClick={handleIngreso}> 
+                                    Ingresar 
+                                </button>
+                                <p><Link className="link-opacity-50-hover" to='/registro'>Quiero Registrarme</Link></p>
+                            </form>
+                        </div>
+                    </section>
+                )
+            }
         </>
     )
-
-
 }
-
-export default Login
