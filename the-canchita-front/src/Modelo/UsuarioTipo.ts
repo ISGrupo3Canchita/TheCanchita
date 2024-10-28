@@ -6,4 +6,5 @@ export type UsuarioTipo ={
     token:String,
     telefono:String,
     cantidadReserva:String,
+    codigoRespuesta:number,
 }

@@ -3,7 +3,7 @@ import { UserRegistro } from "../Modelo/UserRegistro";
 import { RegistroUsuario } from "../api/Registro";
 import { Link } from "react-router-dom";
 
-const Registro =()=>{
+export const Registro =()=>{
 
     const inputNombreRef = useRef<HTMLInputElement>(null);
     const inputEmailRef = useRef<HTMLInputElement>(null);
@@ -79,5 +79,3 @@ const Registro =()=>{
     )
 
 }
-
-export default Registro

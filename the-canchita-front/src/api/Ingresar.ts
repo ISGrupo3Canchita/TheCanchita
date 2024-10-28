@@ -1,5 +1,6 @@
 import axios from "axios";
 import Api from "./Api";
+import { UsuarioTipo } from "../Modelo/UsuarioTipo";
 
 
 const LOGIN_URL = Api.defaults.baseURL+'/theCanchita/ingreso';
@@ -12,13 +13,14 @@ export const Ingresar= async(user:String,pwd:String) => {
                             headers: {'Content-Type' : 'application/json'},
                             withCredentials: true
                          });
-    const datosUsuario={
+    const datosUsuario:UsuarioTipo={
             nombre:response.data.nombre,
             email:response.data.email,
             rol:response.data.rol,
             telefono:response.data.rol,
             cantidadReserva:response.data.cantidadReserva,
-            token:response.data.token
+            token:response.data.token,
+            codigoRespuesta: response.status
     }
     return datosUsuario
 }

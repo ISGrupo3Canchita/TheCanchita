@@ -1,26 +1,26 @@
-import { useRef, useState} from "react"
+import { useRef } from "react"
 import { Ingresar } from "../api/Ingresar.ts";
 import { Link } from "react-router-dom";
-import { UsuarioContextoTipo } from "../Contexto/UsuarioContextoTipo.ts";
+import { UsuarioContextoValue } from "../Contexto/UsuarioContextoValue.ts";
 import { PaginaUsuario } from "./PaginaUsuario.tsx";
 
 
-const Login = (ctxUsuario:UsuarioContextoTipo) => {
 
-    const [succes,setSucces] = useState(false)
+export const Login = (ctxUsuario:UsuarioContextoValue,) => {
+
 
     const inputNombreRef = useRef<HTMLInputElement>(null);
     const inputContraseñaRef = useRef<HTMLInputElement>(null);
 
-    const handleIngreso = () => {
-       const usuarioRespuesta= Ingresar(inputNombreRef.current!.value,inputContraseñaRef.current!.value);
-    
+    const handleIngreso = async() => {
+       const usuarioRespuesta= await Ingresar(inputNombreRef.current!.value,inputContraseñaRef.current!.value);
+       ctxUsuario.setUsuario(usuarioRespuesta)
     }
 
     
     return (
         <>
-            {ctxUsuario.codigoRespuesta === 200 ? (
+            {ctxUsuario.usuario.codigoRespuesta === 200 ? (
                     <section>
                         <PaginaUsuario/>
                     </section>
@@ -58,9 +58,6 @@ const Login = (ctxUsuario:UsuarioContextoTipo) => {
                     </section>
                 )
             }
-
         </>
     )
 }
-
-export default Login
