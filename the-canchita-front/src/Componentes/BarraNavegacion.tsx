@@ -19,7 +19,7 @@ export const BarraNavegacion:React.FC = () => {
                         <div className="collapse navbar-collapse" id="mynavbar">
                         <ul className="navbar-nav me-auto">
                             <li className="nav-item">
-                            <a className="nav-link" href="javascript:void(0)">Reservas</a>
+                            <a className="nav-link" href="javascript:void(0)">Mis Reservas</a>
                             </li>
                             <li className="nav-item">
                             <a className="nav-link" href="javascript:void(0)">Canchas</a>
