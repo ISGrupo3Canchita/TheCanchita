@@ -8,7 +8,7 @@ export const Registro =()=>{
     const inputNombreRef = useRef<HTMLInputElement>(null);
     const inputEmailRef = useRef<HTMLInputElement>(null);
     const inputTelefonoRef = useRef<HTMLInputElement>(null);
-    const inputConstraseñaRef = useRef<HTMLInputElement>(null);
+    const inputContraseñaRef = useRef<HTMLInputElement>(null);
 
 
     const handlerBotonRegistro = ()=>{
@@ -17,7 +17,7 @@ export const Registro =()=>{
             nombreUsuario:inputNombreRef.current!.value,
             email:inputEmailRef.current!.value,
             TelefonoUsuario:inputTelefonoRef.current!.value,
-            contraseñaUsuario:inputConstraseñaRef.current!.value,
+            contraseñaUsuario:inputContraseñaRef.current!.value,
         }
         const respuestaRegistro = RegistroUsuario(userRegistro)
         console.log(respuestaRegistro)
@@ -56,9 +56,9 @@ export const Registro =()=>{
                             /></label>
                         </div>
                         <div className="mb-3 mt-3">
-                            <label className="form-label">Constraseña
+                            <label className="form-label">Contraseña
                             <input
-                            ref={inputConstraseñaRef}
+                            ref={inputContraseñaRef}
                             className="form-control"
                             type="text"
                             placeholder="********" 
