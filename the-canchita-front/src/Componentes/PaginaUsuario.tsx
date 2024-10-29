@@ -1,6 +1,6 @@
 
 import { BarraNavegacion } from "./BarraNavegacion";
-import { Reserva } from "./Reserva";
+import { ListadoReserva } from "./ListadoReserva";
 
 
 export const PaginaUsuario= () =>{
@@ -8,7 +8,7 @@ export const PaginaUsuario= () =>{
     return(
         <>
             <BarraNavegacion/>
-            <Reserva/>
+            <ListadoReserva/>
         </>
     )
 }

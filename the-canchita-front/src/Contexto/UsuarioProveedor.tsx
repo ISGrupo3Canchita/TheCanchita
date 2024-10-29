@@ -6,7 +6,7 @@ import { UsuarioTipo } from "../Modelo/UsuarioTipo";
 
 export const UsuarioProveedor:React.FC<React.PropsWithChildren> = ({children})=>{
     
-    const[ctxUsuario,setCtxUsuario] = useState<UsuarioTipo>({nombre:'', rol:'', token:'',cantidadReserva:'',email:'',telefono:'',codigoRespuesta:0});
+    const[ctxUsuario,setCtxUsuario] = useState<UsuarioTipo>({nombre:'', rol:'', token:'',cantidadReserva:'',email:'',telefono:'',codigoRespuesta:0, listadoReservaActivas:[]});
     
     const actualizarUsuario =(usuario:UsuarioTipo)=>{
         setCtxUsuario(usuario)

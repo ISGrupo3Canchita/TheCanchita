@@ -4,6 +4,7 @@ import { Registro } from  './Registro';
 
 import { useContext } from 'react';
 import { UsuarioContexto } from '../Contexto/UsuarioContexto';
+import { PaginaUsuario } from './PaginaUsuario';
 
 function App() {
   
@@ -12,9 +13,9 @@ function App() {
   return(
     <>
       <Routes>
-        <Route path='/' element = { <Login usuario={usuario} setUsuario={setUsuario} /> } />
+        <Route path='/login' element = { <Login usuario={usuario} setUsuario={setUsuario} /> } />
         <Route path='/registro' element = {<Registro/>} />
-        
+        <Route path='/paginaUsuario' element = {<PaginaUsuario/>}/>
       </Routes>
     </>
   );
