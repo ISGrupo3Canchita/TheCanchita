@@ -1,9 +1,7 @@
-export type Reserva ={
+export type ReservaTipo ={
     idReserva:number,
     canchaNombre:string,
     horaInicio:number,
     horaFinal:number
 }
-
-export type ListReserva = {listaReservas:Reserva[]}
 

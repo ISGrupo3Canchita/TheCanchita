@@ -1,8 +1,7 @@
 import { useRef } from "react"
-import { Ingresar } from "../api/Ingresar.ts";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { UsuarioContextoValue } from "../Contexto/UsuarioContextoValue.ts";
-import { PaginaUsuario } from "./PaginaUsuario.tsx";
+import { UsuarioTipo } from "../Modelo/UsuarioTipo.ts";
 
 
 
@@ -13,16 +12,24 @@ export const Login = (ctxUsuario:UsuarioContextoValue,) => {
     const inputContraseñaRef = useRef<HTMLInputElement>(null);
 
     const handleIngreso = async() => {
-       const usuarioRespuesta= await Ingresar(inputNombreRef.current!.value,inputContraseñaRef.current!.value);
+       //const usuarioRespuesta= await Ingresar(inputNombreRef.current!.value,inputContraseñaRef.current!.value);
+       const usuarioRespuesta:UsuarioTipo ={
+        nombre:'Oliver Atom',
+        email:'gnz@gnz',
+        codigoRespuesta:200,
+        //rol:'Adimnistrador',
+        rol:'Usuario',
+        telefono:'0800-estoycansadojefe',
+        token:'pasaNomaCapo',
+       }
        ctxUsuario.setUsuario(usuarioRespuesta)
     }
-
     
     return (
         <>
             {ctxUsuario.usuario.codigoRespuesta === 200 ? (
                     <section>
-                        <PaginaUsuario/>
+                        <Navigate to={'./paginaUsuario'}/>
                     </section>
                 ) : ( 
                     <section>

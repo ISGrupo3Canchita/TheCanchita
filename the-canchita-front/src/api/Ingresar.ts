@@ -18,9 +18,9 @@ export const Ingresar= async(user:String,pwd:String) => {
             email:response.data.email,
             rol:response.data.rol,
             telefono:response.data.rol,
-            cantidadReserva:response.data.cantidadReserva,
             token:response.data.token,
-            codigoRespuesta: response.status
+            codigoRespuesta: response.status,
+
     }
     return datosUsuario
 }
