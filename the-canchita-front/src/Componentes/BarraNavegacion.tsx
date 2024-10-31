@@ -1,6 +1,8 @@
 import React from "react"
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { UsuarioContexto } from "../Contexto/UsuarioContexto";
+import { Canchas } from "./Canchas";
 
 
 export const BarraNavegacion:React.FC = () => {
@@ -22,13 +24,14 @@ export const BarraNavegacion:React.FC = () => {
                             <a className="nav-link" href="javascript:void(0)">Mis Reservas</a>
                             </li>
                             <li className="nav-item">
-                            <a className="nav-link" href="javascript:void(0)">Canchas</a>
+                            <p>< Link className="nav-link" to='canchas'>Canchas</Link></p>
                             </li>
                         </ul>
                         </div>
                     </div>
                 </nav>
             </div>
+            <Canchas/>
         </>
     )
 }

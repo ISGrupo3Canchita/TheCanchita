@@ -18,6 +18,11 @@ export const Login = (ctxUsuario:UsuarioContextoValue,) => {
     }
 
     
+
+
+
+
+    
     return (
         <>
             {ctxUsuario.usuario.codigoRespuesta === 200 ? (
@@ -53,6 +58,7 @@ export const Login = (ctxUsuario:UsuarioContextoValue,) => {
                                     Ingresar 
                                 </button>
                                 <p><Link className="link-opacity-50-hover" to='/registro'>Quiero Registrarme</Link></p>
+
                             </form>
                         </div>
                     </section>
