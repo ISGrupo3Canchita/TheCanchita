@@ -2,7 +2,7 @@ import axios from "axios";
 import { UserRegistro } from "../Modelo/UserRegistro";
 import Api from "./Api";
 
-const Registro_URL = Api.defaults.baseURL+'/theCanchita/addUser';
+const Registro_URL = Api.defaults.baseURL+'/theCanchita/registro';
 
 
 export const RegistroUsuario= async(userRegistro:UserRegistro)=>{
