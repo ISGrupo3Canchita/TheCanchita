@@ -3,7 +3,7 @@ import Api from "./Api";
 import { UsuarioTipo } from "../Modelo/UsuarioTipo";
 
 
-const LOGIN_URL = Api.defaults.baseURL+'/theCanchita/ingreso';
+const LOGIN_URL = Api.defaults.baseURL+'/theCanchita/post/usuario/';
 
 export const Ingresar= async(user:String,pwd:String) => {
     console.log(LOGIN_URL )
