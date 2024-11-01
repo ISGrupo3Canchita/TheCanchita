@@ -4,31 +4,29 @@ import axios from 'axios';
 
 export const PaginaAdministrador = () => {
     const { usuario } = useContext(UsuarioContexto);
-    // const [view, setView] = useState('usuarios');
+    const [view, setView] = useState('usuarios');
     const [usuarios, setUsuarios] = useState([]);
     const [canchas, setCanchas] = useState([]);
 
     useEffect(() => {
-        if (view === 'usuarios') {
-            axios.get('/theCanchita/admin/usuarios')
+        view === 'usuarios'
+            ? axios.get('/theCanchita/admin/usuarios')
                 .then(response => setUsuarios(response.data))
-                .catch(error => console.error(error));
-        } else if (view === 'canchas') {
-            axios.get('/theCanchita/admin/canchas')
+                .catch(error => console.error(error))
+            : axios.get('/theCanchita/admin/canchas')
                 .then(response => setCanchas(response.data))
                 .catch(error => console.error(error));
-        }
     }, [view]);
 
     return (
         <div className="container">
             <h1>Admin Dashboard</h1>
             <div className="btn-group">
-                <button className="btn btn-primary" onClick={() => setView('Usuarios')}>Usuarios</button>
-                <button className="btn btn-secondary" onClick={() => setView('Canchas')}>Canchas</button>
+                <button className="btn btn-primary" onClick={() => setView('usuarios')}>Usuarios</button>
+                <button className="btn btn-secondary" onClick={() => setView('canchas')}>Canchas</button>
             </div>
             
-            {view === 'usuarios' && (
+            {view === 'usuarios' ? (
                 <div>
                     <h2>Lista de Usuarios</h2>
                     <table className="table">
@@ -48,9 +46,7 @@ export const PaginaAdministrador = () => {
                         </tbody>
                     </table>
                 </div>
-            )}
-            
-            {view === 'canchas' && (
+            ) : (
                 <div>
                     <h2>Lista de Canchas</h2>
                     <table className="table">
@@ -74,9 +70,3 @@ export const PaginaAdministrador = () => {
         </div>
     );
 };
-
-/* 
-En lugar del triple igual === preciso el formato
-condición ? valor 1 : valor 2
-
-*/
