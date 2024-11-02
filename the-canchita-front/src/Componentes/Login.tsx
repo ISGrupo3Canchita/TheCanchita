@@ -2,6 +2,7 @@ import { useRef } from "react"
 import { Link, Navigate } from "react-router-dom";
 import { UsuarioContextoValue } from "../Contexto/UsuarioContextoValue.ts";
 import { UsuarioTipo } from "../Modelo/UsuarioTipo.ts";
+import { Ingresar } from "../api/Ingresar.ts";
 
 
 
@@ -12,16 +13,16 @@ export const Login = (ctxUsuario:UsuarioContextoValue,) => {
     const inputContraseñaRef = useRef<HTMLInputElement>(null);
 
     const handleIngreso = async() => {
-       //const usuarioRespuesta= await Ingresar(inputNombreRef.current!.value,inputContraseñaRef.current!.value);
-       const usuarioRespuesta:UsuarioTipo ={
-        nombre:'Oliver Atom',
-        email:'gnz@gnz',
-        codigoRespuesta:200,
-        //rol:'Adimnistrador',
-        rol:'Usuario',
-        telefono:'0800-estoycansadojefe',
-        token:'pasaNomaCapo',
-       }
+       const usuarioRespuesta= await Ingresar(inputNombreRef.current!.value,inputContraseñaRef.current!.value);
+    //    const usuarioRespuesta:UsuarioTipo ={
+    //     nombre:'Oliver Atom',
+    //     email:'gnz@gnz',
+    //     codigoRespuesta:200,
+    //     //rol:'Adimnistrador',
+    //     rol:'Usuario',
+    //     telefono:'0800-estoycansadojefe',
+    //     token:'pasaNomaCapo',
+    //    }
        ctxUsuario.setUsuario(usuarioRespuesta)
     }
     

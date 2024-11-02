@@ -10,4 +10,5 @@ export const Ingresar= async(user:String,pwd:String) => {
                             headers: {'Content-Type' : 'application/json'},
                             withCredentials: true
                          });
+    console.log(response)
     }

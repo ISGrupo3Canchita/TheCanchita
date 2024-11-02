@@ -5,6 +5,7 @@ import { useContext } from 'react';
 import { UsuarioContexto } from './Contexto/UsuarioContexto';
 import { PaginaUsuario } from './Componentes/PaginaUsuario';
 import { PaginaAdministrador } from './Componentes/PaginaAdministrador';
+
 function App() {
   
   const {usuario,setUsuario} = useContext(UsuarioContexto);
@@ -15,7 +16,7 @@ function App() {
         <Route path='/' element = { <Login usuario={usuario} setUsuario={setUsuario} /> } />
         <Route path='/registro' element = {<Registro/>} />
         <Route path='/paginausuario' element = {<PaginaUsuario/>}/>
-        <Route path='/paginaAdministrador' element={<PaginaAdministrador/>}/>
+        <Route path='/paginaadministrador' element={<PaginaAdministrador/>}/>
       </Routes>
     </>
   );

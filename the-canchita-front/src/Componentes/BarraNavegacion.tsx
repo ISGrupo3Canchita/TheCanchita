@@ -1,16 +1,22 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { UsuarioContexto } from "../Contexto/UsuarioContexto";
-import { Link } from "react-router-dom";
 
 
-export const BarraNavegacion : React.FC<{cargarReserva:()=>void}> = ({cargarReserva}) => {
+
+export const BarraNavegacion  = () => {
 
     const {usuario} = useContext(UsuarioContexto);
+
+    // const handlerCanchas = ()=>{
+    //     setLista('Canchas')
+    // }
+    // const handlerReservas = ()=>{
+    //     setLista('Reservas')
+    // }
 
     return(
         <>
             <div className="container-fluid text-center">
-                
                 <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
                     <div className="container-fluid">
                         <a className="navbar-brand active" href="#" > {usuario.nombre}</a>
@@ -20,12 +26,14 @@ export const BarraNavegacion : React.FC<{cargarReserva:()=>void}> = ({cargarRese
                         <div className="collapse navbar-collapse" id="mynavbar">
                         <ul className="navbar-nav me-auto">
                             <li className="nav-item">
-                            <a className="nav-link" href="#"
-                                onClick={cargarReserva}
+                            <a className="nav-link" href=""
+                                // onClick={handlerReservas}
                             >Mis Reservas</a>
                             </li>
                             <li className="nav-item">
-                            <a className="nav-link" >Canchas</a>
+                            <a className="nav-link" href=""
+                                // onClick={handlerCanchas} 
+                            >Canchas</a>
                             </li>
                         </ul>
                         </div>
