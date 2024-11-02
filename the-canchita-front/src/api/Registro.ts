@@ -1,5 +1,5 @@
 import axios from "axios";
-import { UserRegistro } from "../Modelo/UserRegistro";
+import { UserRegistro } from "../Model/UserRegistro";
 import Api from "./Api";
 
 const Registro_URL = Api.defaults.baseURL+'/theCanchita/addUser';

@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { UsuarioContexto } from "../Contexto/UsuarioContexto"
+import { UsuarioContexto } from "../Context/UsuarioContexto"
 
 export const PaginaAdministrador = () => {
 

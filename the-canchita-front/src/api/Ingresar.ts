@@ -1,6 +1,6 @@
 import axios from "axios";
 import Api from "./Api";
-import { UsuarioTipo } from "../Modelo/UsuarioTipo";
+import { UsuarioTipo } from "../Model/UsuarioTipo";
 
 
 const LOGIN = Api.defaults.baseURL+'/theCanchita/ingreso';

@@ -1,5 +1,5 @@
 import { Reserva } from "./Reserva"
-import { ReservaTipo } from "../Modelo/ReservaTipo"
+import { ReservaTipo } from "../../Model/ReservaTipo"
 
 
 

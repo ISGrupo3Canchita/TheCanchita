@@ -1,5 +1,5 @@
 import React from "react"
-import { ReservaTipo } from "../Modelo/ReservaTipo"
+import { ReservaTipo } from "../../Model/ReservaTipo"
 
 type reservaProps ={
     reserva:ReservaTipo

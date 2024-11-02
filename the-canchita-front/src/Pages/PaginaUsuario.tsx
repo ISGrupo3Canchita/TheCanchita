@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from "react";
-import { BarraNavegacion } from "./BarraNavegacion";
-import { ListadoReserva } from "./ListadoReserva";
-import { UsuarioContexto } from "../Contexto/UsuarioContexto";
+import { BarraNavegacion } from "../Components/NavBar/BarraNavegacion";
+import { ListadoReserva } from "../Components/Reservas/Reservas";
+import { UsuarioContexto } from "../Context/UsuarioContexto";
 import { Navigate } from "react-router-dom";
-import { ReservaTipo } from "../Modelo/ReservaTipo";
-import { ListaReservaTipo } from "../Modelo/ListaReservaTipo";
+import { ReservaTipo } from "../Model/ReservaTipo";
+import { ListaReservaTipo } from "../Model/ListaReservaTipo";
 
 
 const reservas:ReservaTipo[] = [

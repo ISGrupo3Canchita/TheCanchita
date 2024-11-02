@@ -1,10 +1,10 @@
 import { Route, Routes } from 'react-router-dom';
-import { Login } from './Componentes/Login'
-import { Registro } from  './Componentes/Registro';
+import { Login } from './Components/Login/Login'
+import { Registro } from  './Components/Registro/Registro';
 import { useContext } from 'react';
-import { UsuarioContexto } from './Contexto/UsuarioContexto';
-import { PaginaUsuario } from './Componentes/PaginaUsuario';
-import { PaginaAdministrador } from './Componentes/PaginaAdministrador';
+import { UsuarioContexto } from './Context/UsuarioContexto';
+import { PaginaUsuario } from './Pages/PaginaUsuario';
+import { PaginaAdministrador } from './Pages/PaginaAdministrador';
 
 function App() {
   

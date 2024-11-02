@@ -1,8 +1,8 @@
 import { useRef } from "react"
 import { Link, Navigate } from "react-router-dom";
-import { UsuarioContextoValue } from "../Contexto/UsuarioContextoValue.ts";
-import { UsuarioTipo } from "../Modelo/UsuarioTipo.ts";
-import { Ingresar } from "../api/Ingresar.ts";
+import { UsuarioContextoValue } from "../../Context/UsuarioContextoValue.ts";
+import { UsuarioTipo } from "../../Model/UsuarioTipo.ts";
+import { Ingresar } from "../../api/Ingresar.ts";
 
 
 

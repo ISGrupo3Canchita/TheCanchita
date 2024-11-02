@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { UsuarioContexto } from "./UsuarioContexto";
-import { UsuarioTipo } from "../Modelo/UsuarioTipo";
+import { UsuarioTipo } from "../Model/UsuarioTipo";
 
 
 
