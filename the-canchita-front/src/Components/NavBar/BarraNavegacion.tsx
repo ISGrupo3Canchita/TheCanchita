@@ -3,7 +3,7 @@ import { UsuarioContexto } from "../../Context/UsuarioContexto";
 
 
 
-export const BarraNavegacion  = () => {
+export const BarraNavegacionUsuario  = () => {
 
     const {usuario} = useContext(UsuarioContexto);
 

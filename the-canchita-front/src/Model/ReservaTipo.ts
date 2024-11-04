@@ -3,5 +3,6 @@ export type ReservaTipo ={
     canchaNombre:string,
     horaInicio:number,
     horaFinal:number
+    estadoReserva:String,
 }
 

@@ -1,4 +1,4 @@
-export const Canchita =()=>{
+export const Canchas =()=>{
 
     
     return(
