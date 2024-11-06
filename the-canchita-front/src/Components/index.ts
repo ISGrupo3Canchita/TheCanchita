@@ -1,8 +1,8 @@
 import { Canchas } from "./Cancha/Canchas";
 import { Login } from "./Login/Login";
-import { BarraNavegacion } from "./NavBar/BarraNavegacion";
+import { BarraNavegacionUsuario } from "./NavBar/BarraNavegacionUsuario";
 import { Registro } from "./Registro/Registro";
 import { ReservaFila } from "./Reservas/ReservaFila";
 import { ListadoReserva } from "./Reservas/ListadoReserva";
 
-export {Canchas, Login, BarraNavegacion, Registro, ReservaFila, ListadoReserva} 
+export {Canchas, Login, BarraNavegacionUsuario, Registro, ReservaFila, ListadoReserva} 

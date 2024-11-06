@@ -2,13 +2,9 @@ import { useRef } from "react"
 import { Link, Navigate } from "react-router-dom";
 import { UsuarioContextoValue } from "../../Context/UsuarioContextoValue.ts";
 import { UsuarioTipo } from "../../Model/UsuarioTipo.ts";
-import { Ingresar } from "../../api/Ingresar.ts";
-
-
 
 export const Login = (ctxUsuario:UsuarioContextoValue,) => {
-
-
+    console.log('Estoy en LOGIN')
     const inputNombreRef = useRef<HTMLInputElement>(null);
     const inputContraseñaRef = useRef<HTMLInputElement>(null);
 
@@ -28,9 +24,10 @@ export const Login = (ctxUsuario:UsuarioContextoValue,) => {
     
     return (
         <>
+            {console.log('Estoy en return LOGIN')}
             {ctxUsuario.usuario.codigoRespuesta === 200 ? (
                     <section>
-                        <Navigate to={'./paginaUsuario'}/>
+                        <Navigate to={'./paginausuario'}/>
                     </section>
                 ) : ( 
                     <section>

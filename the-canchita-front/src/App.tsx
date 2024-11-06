@@ -12,10 +12,11 @@ function App() {
 
   return(
     <>
+      {console.log('Estoy en APP')}
       <Routes>
         <Route path='/' element = { <Login usuario={usuario} setUsuario={setUsuario} /> } />
         <Route path='/registro' element = {<Registro/>} />
-        <Route path='/paginausuario' element = {<PaginaUsuario/>}/>
+        <Route path='/paginausuario' element = {<PaginaUsuario usuario={usuario}/>}/>
         <Route path='/paginaadministrador' element={<PaginaAdministrador/>}/>
       </Routes>
     </>

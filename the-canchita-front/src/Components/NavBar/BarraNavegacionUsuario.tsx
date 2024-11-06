@@ -1,25 +1,19 @@
-import { useContext } from "react";
-import { UsuarioContexto } from "../../Context/UsuarioContexto";
 
-
-
-export const BarraNavegacionUsuario  = () => {
-
-    const {usuario} = useContext(UsuarioContexto);
-
-    // const handlerCanchas = ()=>{
-    //     setLista('Canchas')
-    // }
-    // const handlerReservas = ()=>{
-    //     setLista('Reservas')
-    // }
+export const BarraNavegacionUsuario:React.FC<{cambio:(lista:String)=>void, nombre:String}> = ({cambio,nombre}) => {
+    {console.log('Estoy en BARRA-NAVEGACION-USUARIO')}
+    const handlerCanchas = ()=>{
+        cambio('Canchas')
+    }
+    const handlerReservas = ()=>{
+        cambio('Reservas')
+    }
 
     return(
         <>
             <div className="container-fluid text-center">
                 <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
                     <div className="container-fluid">
-                        <a className="navbar-brand active" href="#" > {usuario.nombre}</a>
+                        <a className="navbar-brand active" href="#" > {nombre}</a>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
                         <span className="navbar-toggler-icon"></span>
                         </button>
@@ -27,12 +21,12 @@ export const BarraNavegacionUsuario  = () => {
                         <ul className="navbar-nav me-auto">
                             <li className="nav-item">
                             <a className="nav-link" href=""
-                                // onClick={handlerReservas}
+                                onClick={handlerReservas}
                             >Mis Reservas</a>
                             </li>
                             <li className="nav-item">
                             <a className="nav-link" href=""
-                                // onClick={handlerCanchas} 
+                                onClick={handlerCanchas} 
                             >Canchas</a>
                             </li>
                         </ul>
