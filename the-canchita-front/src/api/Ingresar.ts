@@ -1,12 +1,12 @@
 import axios from "axios";
-import Api from "./Api";
+import { theCanchitaApi } from "./Api";
 import { UsuarioTipo } from "../Model/UsuarioTipo";
 
 
-const LOGIN = Api.defaults.baseURL+'/theCanchita/ingreso';
+const LOGIN ='/theCanchita/ingreso';
 
 export const Ingresar= async(user:String,pwd:String) => {
-    const response = await axios.post(LOGIN, 
+    const response = await theCanchitaApi.post(
             JSON.stringify({username: user, password : pwd}),
             {headers:{'Content-Type' : 'application/json'},
             withCredentials: true})

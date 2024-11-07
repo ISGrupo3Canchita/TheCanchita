@@ -2,15 +2,20 @@ import { useRef } from "react"
 import { Link, Navigate } from "react-router-dom";
 import { UsuarioContextoValue } from "../../Context/UsuarioContextoValue.ts";
 import { UsuarioTipo } from "../../Model/UsuarioTipo.ts";
+import { Ingresar } from "../../api/Ingresar.ts";
 
-export const Login = (ctxUsuario:UsuarioContextoValue,) => {
-    console.log('Estoy en LOGIN')
+export const Login = (ctxUsuario:UsuarioContextoValue) => {
+
+    console.log('Estoy en LOGIN');
+
     const inputNombreRef = useRef<HTMLInputElement>(null);
     const inputContraseñaRef = useRef<HTMLInputElement>(null);
 
     const handleIngreso = async() => {
     //    const usuarioRespuesta= await Ingresar(inputNombreRef.current!.value,inputContraseñaRef.current!.value);
+
        const usuarioRespuesta:UsuarioTipo ={
+        id:'usuariouno',
         nombre:'Oliver Atom',
         email:'gnz@gnz',
         codigoRespuesta:200,
@@ -19,6 +24,7 @@ export const Login = (ctxUsuario:UsuarioContextoValue,) => {
         telefono:'TELEFONO',
         token:'TOKEN',
        }
+
        ctxUsuario.setUsuario(usuarioRespuesta)
     }
     
@@ -47,7 +53,7 @@ export const Login = (ctxUsuario:UsuarioContextoValue,) => {
                                     <label className="form-label" id="contraseña">Contraseña:
                                     <input className="form-control" id="contraseña"
                                         ref={inputContraseñaRef}
-                                        type="text"
+                                        type="password"
                                         placeholder="del 1 al 8"
                                         required
                                     /></label>

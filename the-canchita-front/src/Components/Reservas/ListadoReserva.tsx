@@ -1,5 +1,5 @@
 import { ReservaFila } from "./ReservaFila"
-import React, { useEffect, useState } from "react"
+import React from "react"
 import { ListaReservaTipo } from "../../Model/ListaReservaTipo"
 
 

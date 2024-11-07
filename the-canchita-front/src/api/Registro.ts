@@ -1,12 +1,11 @@
-import axios from "axios";
 import { UserRegistro } from "../Model/UserRegistro";
-import Api from "./Api";
+import { theCanchitaApi } from "./Api";
 
-const Registro_URL = Api.defaults.baseURL+'/theCanchita/addUser';
+const Registro_URL = '/theCanchita/addUser';
 
 
 export const RegistroUsuario= async(userRegistro:UserRegistro)=>{
-    const response = await axios.post(Registro_URL,
+    const response = await theCanchitaApi.post(Registro_URL,
                         JSON.stringify({
                                         nombreUsuario:userRegistro.nombreUsuario,
                                         email:userRegistro.email,
