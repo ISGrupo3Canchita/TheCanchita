@@ -1,8 +1,10 @@
 import { Cancha } from "../Modelo/Cancha"
 
+type canchaRowProps = {
+    cancha : Cancha
+}
 
-
-export const CanchasRow = (cancha : Cancha) => {
+export const CanchasRow : React.FC<canchaRowProps> = ( { cancha } ) => {
 
     return (
         <>

@@ -1,14 +1,28 @@
-import axios from "axios";
-import Api from "./Api";
+import { theCanchitaApi } from "./Api";
 import { Cancha } from "../Modelo/Cancha";
+import { useContext } from "react";
+import { UsuarioContexto } from "../Contexto/UsuarioContexto";
+
+
+
+const Canchas_Habilitas_URL = '/cancha'
 
 
 
 
-const Canchas_Habilitas_URL = Api.defaults.baseURL+'/cancha/get/canchas/habilitadas'
 
 export const CanchasHabilitadas = async() => {
-    const response = await axios.get(Canchas_Habilitas_URL);
+    
+    const { usuario } = useContext(UsuarioContexto)
+
+    const token = usuario.token
+    
+ 
+    const response = await theCanchitaApi.get(Canchas_Habilitas_URL, {
+        headers: {
+            'Authorization': `Bearer ${token}`,  
+        }, 
+    } );
 
     
 

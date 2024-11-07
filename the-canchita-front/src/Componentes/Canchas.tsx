@@ -33,7 +33,7 @@ export const Canchas = () => {
             <tbody className="table-group-divider">
                 {canchas.length > 0 ? (
                     canchas.map((cancha) => (
-                        <CanchasRow {...cancha} />
+                        <CanchasRow cancha={cancha} />
                     ))
                 ) : (
                     <tr>

@@ -1,6 +1,10 @@
 import axios from "axios";
 
-export default axios.create({
+ const theCanchitaApi =  axios.create({
     baseURL: 'http://localhost:8080'
 });
+
+export {theCanchitaApi}
+
+
 
