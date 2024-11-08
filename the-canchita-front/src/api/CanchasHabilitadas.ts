@@ -2,7 +2,7 @@
 import { Cancha } from "../Model/Cancha";
 import { theCanchitaApi } from "./Api";
 
-const Canchas_Habilitas_URL = '/cancha/get/canchas/habilitadas'
+const Canchas_Habilitas_URL = '/cancha'
 
 export const CanchasHabilitadas = async() => {
     const response = await theCanchitaApi.get(Canchas_Habilitas_URL);
