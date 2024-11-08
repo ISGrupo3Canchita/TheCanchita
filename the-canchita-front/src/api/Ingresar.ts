@@ -12,6 +12,7 @@ export const Ingresar= async(user:String,pwd:String) => {
             withCredentials: true})
 
     const datosUsuario:UsuarioTipo={
+            id:response.data.id,
             nombre:response.data.nombre,
             email:response.data.email,
             rol:response.data.rol,
