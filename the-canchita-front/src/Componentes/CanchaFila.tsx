@@ -2,7 +2,7 @@ import { Cancha } from "../Modelo/Cancha"
 
 
 
-export const CanchasRow = (cancha : Cancha) => {
+export const CanchaFila = (cancha : Cancha) => {
 
     return (
         <>

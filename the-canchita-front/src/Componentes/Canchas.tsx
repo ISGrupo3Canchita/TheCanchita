@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { CanchasHabilitadas } from "../api/CanchasHabilitadas";
-import { CanchasRow } from "./CanchasRow";
+import { CanchaFila } from "./CanchaFila";
 import { Cancha } from "../Modelo/Cancha";
 
 export const Canchas = () => {
@@ -33,7 +33,7 @@ export const Canchas = () => {
             <tbody className="table-group-divider">
                 {canchas.length > 0 ? (
                     canchas.map((cancha) => (
-                        <CanchasRow {...cancha} />
+                        <CanchaFila {...cancha} />
                     ))
                 ) : (
                     <tr>

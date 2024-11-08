@@ -9,7 +9,7 @@ export const PaginaUsuario= () =>{
     return(
         <>
             <BarraNavegacion/>
-        
+            
         </>
     )
 }
