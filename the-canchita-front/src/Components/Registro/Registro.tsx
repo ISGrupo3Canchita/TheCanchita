@@ -1,6 +1,6 @@
 import { useRef } from "react"
-import { UserRegistro } from "../Modelo/UserRegistro";
-import { RegistroUsuario } from "../api/Registro";
+import { UserRegistro } from "../../Model/UserRegistro";
+import { RegistroUsuario } from "../../api/Registro";
 import { Link } from "react-router-dom";
 
 export const Registro =()=>{

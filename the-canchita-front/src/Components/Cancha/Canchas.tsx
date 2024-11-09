@@ -1,7 +1,14 @@
+<<<<<<< HEAD:the-canchita-front/src/Componentes/Canchas.tsx
 import { useEffect, useState } from "react";
 import { CanchasHabilitadas } from "../api/CanchasHabilitadas";
 import { CanchaFila } from "./CanchaFila";
 import { Cancha } from "../Modelo/Cancha";
+=======
+import React, { useEffect, useState } from "react";
+import { CanchasHabilitadas } from "../../api/CanchasHabilitadas";
+import { CanchasRow } from "./CanchasRow";
+import { Cancha } from "../../Model/Cancha";
+>>>>>>> 820870fcbc6eabf2b2bcd08670046be742a993f3:the-canchita-front/src/Components/Cancha/Canchas.tsx
 
 export const Canchas = () => {
     const [canchas, setCanchas] = useState<Cancha[]>([]);

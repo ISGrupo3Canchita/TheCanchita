@@ -1,22 +1,31 @@
 import { useRef } from "react"
-import { Ingresar } from "../api/Ingresar.ts";
-import { Link } from "react-router-dom";
-import { UsuarioContextoValue } from "../Contexto/UsuarioContextoValue.ts";
-import { PaginaUsuario } from "./PaginaUsuario.tsx";
+import { Link, Navigate } from "react-router-dom";
+import { UsuarioContextoValue } from "../../Context/UsuarioContextoValue.ts";
+import { UsuarioTipo } from "../../Model/UsuarioTipo.ts";
 
+export const Login = (ctxUsuario:UsuarioContextoValue) => {
 
-
-export const Login = (ctxUsuario:UsuarioContextoValue,) => {
-
+    console.log('Estoy en LOGIN');
 
     const inputNombreRef = useRef<HTMLInputElement>(null);
     const inputContraseñaRef = useRef<HTMLInputElement>(null);
 
     const handleIngreso = async() => {
-       const usuarioRespuesta= await Ingresar(inputNombreRef.current!.value,inputContraseñaRef.current!.value);
+    //    const usuarioRespuesta= await Ingresar(inputNombreRef.current!.value,inputContraseñaRef.current!.value);
+
+       const usuarioRespuesta:UsuarioTipo ={
+        id:'usuariouno',
+        nombre:'Oliver Atom',
+        email:'gnz@gnz',
+        codigoRespuesta:200,
+        // rol:'Adimnistrador',
+        rol:'Usuario',
+        telefono:'TELEFONO',
+        token:'TOKEN',
+       }
+
        ctxUsuario.setUsuario(usuarioRespuesta)
     }
-
     
 
 
@@ -25,9 +34,10 @@ export const Login = (ctxUsuario:UsuarioContextoValue,) => {
     
     return (
         <>
+            {console.log('Estoy en return LOGIN')}
             {ctxUsuario.usuario.codigoRespuesta === 200 ? (
                     <section>
-                        <PaginaUsuario/>
+                        <Navigate to={'./paginausuario'}/>
                     </section>
                 ) : ( 
                     <section>
@@ -47,7 +57,7 @@ export const Login = (ctxUsuario:UsuarioContextoValue,) => {
                                     <label className="form-label" id="contraseña">Contraseña:
                                     <input className="form-control" id="contraseña"
                                         ref={inputContraseñaRef}
-                                        type="text"
+                                        type="password"
                                         placeholder="del 1 al 8"
                                         required
                                     /></label>

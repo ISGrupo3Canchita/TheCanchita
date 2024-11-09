@@ -1,16 +1,11 @@
-import axios from "axios";
-import Api from "./Api";
-import { Cancha } from "../Modelo/Cancha";
 
+import { Cancha } from "../Model/Cancha";
+import { theCanchitaApi } from "./Api";
 
-
-
-const Canchas_Habilitas_URL = Api.defaults.baseURL+'/cancha/get/canchas/habilitadas'
+const Canchas_Habilitas_URL = '/cancha/get/canchas/habilitadas'
 
 export const CanchasHabilitadas = async() => {
-    const response = await axios.get(Canchas_Habilitas_URL);
-
-    
+    const response = await theCanchitaApi.get(Canchas_Habilitas_URL);
 
     const canchaDatos:Cancha[] = response.data.map((cancha: Cancha) => ({
         

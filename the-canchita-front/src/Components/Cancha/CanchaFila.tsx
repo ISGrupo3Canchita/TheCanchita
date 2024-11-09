@@ -1,4 +1,4 @@
-import { Cancha } from "../Modelo/Cancha"
+import { Cancha } from "../../Model/Cancha"
 
 
 
