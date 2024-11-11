@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { CanchasHabilitadas } from "../../api/CanchasHabilitadas";
-import { CanchasRow } from "./CanchasRow";
-import { Cancha } from "../../Model/Cancha";
+import { useEffect, useState } from "react";
+import { CanchasHabilitadas } from "../api/CanchasHabilitadas";
+import { CanchaFila } from "./CanchaFila";
+import { Cancha } from "../Modelo/Cancha";
+
 
 export const Canchas : React.FC<{token:String}>= ( { token } ) => {
     const [canchas, setCanchas] = useState<Cancha[]>([]);
@@ -18,6 +19,7 @@ export const Canchas : React.FC<{token:String}>= ( { token } ) => {
     }, []);
 
     return ( 
+
         <div className="container-fluid mt-1 text-center" >
             <h1>Canchas Habilitadas</h1>
                 <div className="row">
@@ -29,5 +31,6 @@ export const Canchas : React.FC<{token:String}>= ( { token } ) => {
                 </div>
            
         </div>
+
     );
 };

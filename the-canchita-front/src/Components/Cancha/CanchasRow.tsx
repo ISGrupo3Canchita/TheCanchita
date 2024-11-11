@@ -9,6 +9,7 @@ type canchaProps = {
 
 export const CanchasRow: React.FC<canchaProps>= ( { cancha } ) => {
 
+
     return (
         <>  
              <div className="col-sm-2" >
