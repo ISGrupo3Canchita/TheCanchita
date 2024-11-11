@@ -26,7 +26,7 @@ export const PaginaUsuario : React.FC<{usuario:UsuarioTipo}> = (usuario) =>{
         const reservas = await listaReservas(usuario.usuario.id);
         console.log(reservas)
     }
-    const [cualLista, setCualLista]=useState<String>('Reservas');
+    const [cualLista, setCualLista]=useState<String>('');
 
     const [listaReserva, setListaReservas]= useState<ListaReservaTipo>(reservas);
 
@@ -43,14 +43,11 @@ export const PaginaUsuario : React.FC<{usuario:UsuarioTipo}> = (usuario) =>{
             <BarraNavegacionUsuario cambio={cambioCualLista} nombre={nombreUsuario} />
             { cualLista === 'Reservas' ? (
                 <ListadoReserva reservas={listaReserva}/>
+                
             ) : (
-                <Canchas/>
+                <Canchas token={usuario.usuario.token}/>
             )}
-            <button className="btn btn-danger" 
-                                type="button"
-                                onClick={obtenerReservas}
-                            >Obtener Reservas</button>
-
+        
         </>
     )
 }
