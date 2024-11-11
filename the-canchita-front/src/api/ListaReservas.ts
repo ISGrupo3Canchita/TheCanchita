@@ -1,12 +1,17 @@
+import { ListaReservaTipo } from "../Model/ListaReservaTipo";
 import { theCanchitaApi } from "./Api";
 
- const LISTA = '/reserva/get/reservaparausuario/'
- const PRUEBA = '/usuarios/prueba'
+ const LISTA = 'reserva/get/reservaparausuario/'
 
-export const listaReservas= async(idUsuario:String) => {
-    console.log(LISTA+idUsuario)
-    const response = await theCanchitaApi.get(LISTA+idUsuario);
-    return response.data
+export const listaReservas= async(email:String, token:String) => {
+    console.log(LISTA+email)
+    const response = await theCanchitaApi.get(LISTA+email,{
+        headers: {
+            Authorization: `Bearer `+token
+        }
     }
+    );
+    console.log(response.data);
+    return response.data;
     
-
+    }

@@ -3,10 +3,10 @@ import { theCanchitaApi } from "./Api";
 import { UsuarioTipo } from "../Model/UsuarioTipo";
 
 
-const LOGIN ='/theCanchita/ingreso';
+const LOGIN ='/usuarios/login';
 
 export const Ingresar= async(user:String,pwd:String) => {
-    const response = await theCanchitaApi.post(
+    const response = await theCanchitaApi.post(LOGIN,
             JSON.stringify({username: user, password : pwd}),
             {headers:{'Content-Type' : 'application/json'},
             withCredentials: true})
@@ -21,17 +21,6 @@ export const Ingresar= async(user:String,pwd:String) => {
             codigoRespuesta: response.status,
 
     }
+    console.log(datosUsuario.token)
     return datosUsuario
 }
-
-
-// consulta mandando token
-// const api = `your api here`
-// axios.get(api, { headers: {"Authorization" : `Bearer ${token}`} })
-//         .then(res => {
-//             console.log(res.data);
-//         this.setState({
-//             items: res.data,  /*set response data in items array*/
-//             isLoaded : true,
-//             redirectToReferrer: false
-//         })
