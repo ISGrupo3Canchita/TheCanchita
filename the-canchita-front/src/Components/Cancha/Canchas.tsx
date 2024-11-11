@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { CanchasHabilitadas } from "../api/CanchasHabilitadas";
-import { CanchaFila } from "./CanchaFila";
-import { Cancha } from "../Modelo/Cancha";
+import { CanchasHabilitadas } from "../../api/CanchasHabilitadas";
+import { Cancha } from "../../Model/Cancha";
+import { CanchasRow } from "./CanchasRow";
 
 
 export const Canchas : React.FC<{token:String}>= ( { token } ) => {
