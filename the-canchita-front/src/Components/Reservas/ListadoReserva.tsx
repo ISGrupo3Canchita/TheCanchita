@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react"
 import { ListaReservaTipo } from "../../Model/ListaReservaTipo"
 import { UsuarioContexto } from "../../Context/UsuarioContexto"
 import { listaReservas } from "../../api/ListaReservas"
+import { cancelaReserva } from "../../api/CancelarReserva"
 
 
 
@@ -10,6 +11,15 @@ export const ListadoReserva =()=>{
     const {usuario } = useContext(UsuarioContexto)
 
     const [reservas ,setReservas] = useState<ListaReservaTipo>([]);
+
+    const cancelar = async(idReserva:String,nuevoEstado:String)=>{
+
+        const respuesta = cancelaReserva(idReserva,nuevoEstado,usuario.token);
+        console.log(respuesta);
+        
+        const listaReserva:ListaReservaTipo = await listaReservas(usuario.email, usuario.token);
+        setReservas(listaReserva)
+    }
 
     useEffect(()=>{
         const reservas = async () => {
@@ -27,12 +37,12 @@ export const ListadoReserva =()=>{
                 <div className="row">
                         {
                             reservas.map((r)=>(
-                                <ReservaFila key={r.id} reserva={r}   />
+                                <ReservaFila key={r.id} reserva={r} cancelar={cancelar}   />
                             ))
                         }
                 </div>
             </div>
         </>
     )
-    
+
 } 

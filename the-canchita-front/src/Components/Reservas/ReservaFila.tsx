@@ -1,21 +1,20 @@
-import React from "react"
+import React, { useContext } from "react"
 import { ReservaTipo } from "../../Model/ReservaTipo"
-import { generatePath } from "react-router-dom"
-
 
 type reservaProps ={
     reserva: ReservaTipo,
-    // cancelar:()=>void
+    cancelar:(idReserva:String,nuevoEstado:String)=>void
 }
 
 
-export const ReservaFila:React.FC<reservaProps> = ({reserva})=>{
+export const ReservaFila:React.FC<reservaProps> = ({reserva,cancelar})=>{
     console.log('Estoy en RESERVA-FILA')
 
     console.log(reserva.estadoreserva)
     
     const handleCancelar=()=>{
-        console.log("Se cancela la reserva")
+        const nuevoEstado:String = 'Cancelar';
+        cancelar(reserva.id,nuevoEstado);
     }
     return (
         <>
