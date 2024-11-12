@@ -1,4 +1,3 @@
-import axios from "axios";
 import { theCanchitaApi } from "./Api";
 import { UsuarioTipo } from "../Model/UsuarioTipo";
 

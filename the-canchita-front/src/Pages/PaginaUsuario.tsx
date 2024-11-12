@@ -9,6 +9,7 @@ export const PaginaUsuario : React.FC<{usuario:UsuarioTipo}> = (usuario) =>{
 
     const nombreUsuario = usuario.usuario.nombre;
 
+
     const [cualLista, setCualLista]=useState<String>('Reservas');
 
     const cambioLista =(nombre:String)=>{
@@ -17,11 +18,13 @@ export const PaginaUsuario : React.FC<{usuario:UsuarioTipo}> = (usuario) =>{
 
     return(
         <>
+
             <BarraNavegacionUsuario cambio={cambioLista} nombre={nombreUsuario} />
             { cualLista === 'Reservas' ?  (
                 <ListadoReserva />
+
             ) : (
-                <Canchas/>
+                <Canchas token={usuario.usuario.token}/>
             )}
         </>
     )

@@ -1,46 +1,36 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { CanchasHabilitadas } from "../../api/CanchasHabilitadas";
-import { CanchasRow } from "./CanchasRow";
 import { Cancha } from "../../Model/Cancha";
+import { CanchasRow } from "./CanchasRow";
 
-export const Canchas = () => {
+
+export const Canchas : React.FC<{token:String}>= ( { token } ) => {
     const [canchas, setCanchas] = useState<Cancha[]>([]);
 
     useEffect(() => {
         const fetchCanchas = async () => {
-            try {
-                const canchas = await CanchasHabilitadas();
-                setCanchas(canchas);
-            } catch (err) {
-                console.error(err);
-            }
+        
+        const canchas = await CanchasHabilitadas(token);
+        setCanchas(canchas);
+          
         };
 
         fetchCanchas();
     }, []);
 
     return ( 
-        <table className="table">
-            <thead>
-                <tr>
-                    <th scope="col">Nombre de Cancha</th>
-                    <th scope="col">Dirección</th>
-                    <th scope="col">Horario Inicio</th>
-                    <th scope="col">Horario Fin</th>
-                    <th scope="col">Estado</th>
-                </tr>
-            </thead>
-            <tbody className="table-group-divider">
-                {canchas.length > 0 ? (
-                    canchas.map((cancha) => (
-                        <CanchasRow {...cancha} />
-                    ))
-                ) : (
-                    <tr>
-                        <td colSpan={5}>No hay canchas disponibles</td>
-                    </tr>
-                )}
-            </tbody>
-        </table>
+
+        <div className="container-fluid mt-1 text-center" >
+            <h1>Canchas Habilitadas</h1>
+                <div className="row">
+                    
+                {canchas.map((cancha) => (
+                        <CanchasRow cancha={cancha} />
+                    ))}
+                
+                </div>
+           
+        </div>
+
     );
 };
