@@ -13,16 +13,8 @@ export const Login = (ctxUsuario:UsuarioContextoValue) => {
 
     const handleIngreso = async() => {
         const usuarioRespuesta= await Ingresar(inputNombreRef.current!.value,inputContraseñaRef.current!.value);
-
-
        ctxUsuario.setUsuario(usuarioRespuesta)
     }
-    
-
-
-
-
-    
     return (
         <>
             {console.log('Estoy en return LOGIN')}
