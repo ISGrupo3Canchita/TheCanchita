@@ -1,7 +1,7 @@
 import { UserRegistro } from "../Model/UserRegistro";
 import { theCanchitaApi } from "./Api";
 
-const Registro_URL = '/usuarios';
+const Registro_URL = 'usuarios';
 
 
 export const RegistroUsuario= async(userRegistro:UserRegistro)=>{

@@ -2,7 +2,7 @@ import { theCanchitaApi } from "./Api";
 import { UsuarioTipo } from "../Model/UsuarioTipo";
 
 
-const LOGIN ='/usuarios/login';
+const LOGIN ='usuarios/login';
 
 export const Ingresar= async(user:String,pwd:String) => {
     const response = await theCanchitaApi.post(LOGIN,
