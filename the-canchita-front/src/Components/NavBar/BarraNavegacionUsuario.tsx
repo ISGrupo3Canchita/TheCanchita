@@ -1,6 +1,4 @@
 export const BarraNavegacionUsuario: React.FC<{ cambio: (lista: String) => void; nombre: String }> = ({ cambio, nombre }) => {
-    console.log('Estoy en BARRA-NAVEGACION-USUARIO');
-
     const handlerCanchas = () => {
         cambio('Canchas');
     };

@@ -12,7 +12,6 @@ function App() {
 
   return(
     <>
-      {console.log('Estoy en APP')}
       <Routes>
         <Route path='/' element = { <Login usuario={usuario} setUsuario={setUsuario} /> } />
         <Route path='/registro' element = {<Registro/>} />

@@ -5,13 +5,8 @@ import { BarraNavegacionUsuario } from "../Components/NavBar/BarraNavegacionUsua
 import { UsuarioTipo } from "../Model/UsuarioTipo";
 
 export const PaginaUsuario : React.FC<{usuario:UsuarioTipo}> = (usuario) =>{
-    console.log('Estoy en PAGINA-USUARIO')
-
     const nombreUsuario = usuario.usuario.nombre;
-
-
     const [cualLista, setCualLista]=useState<String>('Reservas');
-
     const cambioLista =(nombre:String)=>{
         setCualLista(nombre)
     }

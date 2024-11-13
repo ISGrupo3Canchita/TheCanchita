@@ -9,18 +9,12 @@ import { cancelaReserva } from "../../api/CancelaReserva"
 
 export const ListadoReserva =()=>{
     const {usuario } = useContext(UsuarioContexto)
-
     const [reservas ,setReservas] = useState<ListaReservaTipo>([]);
-
     const cancelar = async(idReserva:String,nuevoEstado:String)=>{
-
         const respuesta = await cancelaReserva(idReserva,nuevoEstado,usuario.token);
-        console.log(respuesta);
-        
         const listaReserva:ListaReservaTipo = await listaReservas(usuario.email, usuario.token);
         setReservas(listaReserva)
     }
-
     useEffect(()=>{
         const reservas = async () => {
             const listaReserva:ListaReservaTipo = await listaReservas(usuario.email, usuario.token);

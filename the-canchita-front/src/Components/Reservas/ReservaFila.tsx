@@ -5,13 +5,7 @@ type reservaProps ={
     reserva: ReservaTipo,
     cancelar:(idReserva:String,nuevoEstado:String)=>void
 }
-
-
 export const ReservaFila:React.FC<reservaProps> = ({reserva,cancelar})=>{
-    console.log('Estoy en RESERVA-FILA')
-
-    console.log(reserva.estadoreserva)
-    
     const handleCancelar=()=>{
         const nuevoEstado:String = 'Cancelada';
         cancelar(reserva.id,nuevoEstado);
