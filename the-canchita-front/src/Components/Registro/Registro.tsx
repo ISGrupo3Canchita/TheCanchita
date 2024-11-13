@@ -60,7 +60,7 @@ export const Registro =()=>{
                             <input
                             ref={inputConstraseñaRef}
                             className="form-control"
-                            type="text"
+                            type="password"
                             placeholder="********" 
                             /></label>
                         </div>
