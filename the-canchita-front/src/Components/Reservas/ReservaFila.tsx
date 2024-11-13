@@ -13,7 +13,7 @@ export const ReservaFila:React.FC<reservaProps> = ({reserva,cancelar})=>{
     console.log(reserva.estadoreserva)
     
     const handleCancelar=()=>{
-        const nuevoEstado:String = 'Cancelar';
+        const nuevoEstado:String = 'Cancelada';
         cancelar(reserva.id,nuevoEstado);
     }
     return (
