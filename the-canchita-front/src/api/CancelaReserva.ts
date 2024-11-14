@@ -1,18 +1,14 @@
-import { theCanchitaApi } from "./Api";
+import { apiReserva } from "./ApiReserva";
 
  const ESTADO = 'estado'
 
 export const cancelaReserva= async(idReserva:String, nuevoEstado:String,token:String) => {
-    console.log(idReserva);
-    console.log(nuevoEstado);
-    console.log(token);
 
-    const response = await theCanchitaApi.put(`${idReserva}/${ESTADO}/${nuevoEstado}`,{},{
+    const response = await apiReserva.put(`${idReserva}/${ESTADO}/${nuevoEstado}`,{},{
         headers: {
             Authorization: `Bearer ${token}`
         }
     }
     );
     return response.data
-    
     }

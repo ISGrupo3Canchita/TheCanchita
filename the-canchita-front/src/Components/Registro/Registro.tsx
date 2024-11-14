@@ -12,7 +12,6 @@ export const Registro =()=>{
 
 
     const handlerBotonRegistro = ()=>{
-
         const userRegistro:UserRegistro = {
             nombreUsuario:inputNombreRef.current!.value,
             email:inputEmailRef.current!.value,
@@ -77,5 +76,4 @@ export const Registro =()=>{
             </section>
         </>
     )
-
 }

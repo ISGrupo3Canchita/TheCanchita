@@ -1,5 +1,5 @@
 import { UserRegistro } from "../Model/UserRegistro";
-import { theCanchitaApi } from "./Api";
+import { theCanchitaApi } from "./ApiUsuario";
 
 const Registro_URL = 'usuarios';
 

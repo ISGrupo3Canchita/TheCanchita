@@ -5,8 +5,6 @@ import { UsuarioContexto } from "../../Context/UsuarioContexto"
 import { listaReservas } from "../../api/ListaReservas"
 import { cancelaReserva } from "../../api/CancelaReserva"
 
-
-
 export const ListadoReserva =()=>{
     const {usuario } = useContext(UsuarioContexto)
     const [reservas ,setReservas] = useState<ListaReservaTipo>([]);
