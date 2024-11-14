@@ -1,7 +1,6 @@
 import React, { useState} from "react"
 import { ListadoReserva } from "../Components/Reservas/ListadoReserva";
-import { Canchas } from "../Components";
-import { BarraNavegacionUsuario } from "../Components/NavBar/BarraNavegacionUsuario";
+import { Canchas, BarraNavegacionUsuario } from "../Components";
 import { UsuarioTipo } from "../Model/UsuarioTipo";
 
 export const PaginaUsuario : React.FC<{usuario:UsuarioTipo}> = (usuario) =>{
@@ -13,7 +12,6 @@ export const PaginaUsuario : React.FC<{usuario:UsuarioTipo}> = (usuario) =>{
 
     return(
         <>
-
             <BarraNavegacionUsuario cambio={cambioLista} nombre={nombreUsuario} />
             { cualLista === 'Reservas' ?  (
                 <ListadoReserva />
