@@ -17,7 +17,15 @@ export const PaginaOperador = () => {
         setCualLista(nombre)
     }
     const cancelar = async(idReserva:String)=>{
-        const respuesta = await cancelaReserva(idReserva,estado,usuario.token);
+        setEstado('Cancelada');
+        await cancelaReserva(idReserva,estado,usuario.token);
+        const listaReserva:ReservaTipo[] = await reservasPorEstado(estado,usuario.token);
+        setReservas(listaReserva);
+    }
+
+    const confirmar = async(idReserva:String)=>{
+        setEstado('Reservada');
+        await cancelaReserva(idReserva,estado,usuario.token);
         const listaReserva:ReservaTipo[] = await reservasPorEstado(estado,usuario.token);
         setReservas(listaReserva);
     }
@@ -34,7 +42,7 @@ export const PaginaOperador = () => {
         <>
            <BarraNavegacion cambio={cambioLista}nombre={usuario.nombre}/>
             { cualLista === 'Reservas' ?  (
-               <ReservaBase reservas={reservas} cancelar={cancelar}/>
+               <ReservaBase reservas={reservas} cancelar={cancelar} confirmar={confirmar}/>
 
             ) : (
                 <Canchas token={usuario.token}/>
