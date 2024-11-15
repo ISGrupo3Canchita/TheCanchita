@@ -1,4 +1,4 @@
-import { apiReserva } from "./ApiReserva";
+import { apiReserva } from "../apisBases/ApiReserva";
 
  const LISTA = '/email/'
 

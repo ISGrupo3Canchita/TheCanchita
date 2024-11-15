@@ -1,6 +1,6 @@
 
-import { Cancha } from "../Model/Cancha";
-import { apiCancha } from "./ApiCancha";
+import { Cancha } from "../../Model/Cancha";
+import { apiCancha } from "../apisBases/ApiCancha";
 
 export const CanchasHabilitadas = async(token:String) => {
     const response = await apiCancha.get('', {

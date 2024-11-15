@@ -8,5 +8,6 @@ export type UsuarioTipo ={
     token:String,
     telefono:String,
     codigoRespuesta:number,
+
 }
 

@@ -1,7 +1,8 @@
 import { useRef } from "react"
 import { UserRegistro } from "../../Model/UserRegistro";
-import { RegistroUsuario } from "../../api/Registro";
 import { Link } from "react-router-dom";
+import { Registrar } from "../../api";
+
 
 export const Registro =()=>{
 
@@ -18,7 +19,7 @@ export const Registro =()=>{
             TelefonoUsuario:inputTelefonoRef.current!.value,
             contraseñaUsuario:inputConstraseñaRef.current!.value,
         }
-        const respuestaRegistro = RegistroUsuario(userRegistro)
+        const respuestaRegistro = Registrar(userRegistro)
         console.log(respuestaRegistro)
     }
     return(

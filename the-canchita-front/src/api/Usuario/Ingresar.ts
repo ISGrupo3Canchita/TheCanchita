@@ -1,10 +1,10 @@
-import { theCanchitaApi } from "./ApiUsuario";
-import { UsuarioTipo } from "../Model/UsuarioTipo";
+import { apiUsuario } from "../apisBases/ApiUsuario";
+import { UsuarioTipo } from "../../Model";
 
 const LOGIN ='/login';
 
 export const Ingresar= async(user:String,pwd:String) => {
-        const response = await theCanchitaApi.post(LOGIN,JSON.stringify({username: user, password : pwd}))
+        const response = await apiUsuario.post(LOGIN,JSON.stringify({username: user, password : pwd}))
     
         const datosUsuario:UsuarioTipo={
                 id:response.data.id,

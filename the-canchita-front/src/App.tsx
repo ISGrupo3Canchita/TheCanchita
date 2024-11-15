@@ -1,10 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
-import { Login } from './Components/Login/Login'
-import { Registro } from  './Components/Registro/Registro';
 import { useContext } from 'react';
 import { UsuarioContexto } from './Context/UsuarioContexto';
-import { PaginaUsuario } from './Pages/PaginaUsuario';
-import { PaginaAdministrador } from './Pages/PaginaAdministrador';
+import { Login, Registro } from './Components';
+import { PaginaAdministrador, PaginaOperador, PaginaUsuario } from './Pages';
 
 function App() {
   
@@ -17,11 +15,10 @@ function App() {
         <Route path='/registro' element = {<Registro/>} />
         <Route path='/paginausuario' element = {<PaginaUsuario usuario={usuario}/>}/>
         <Route path='/paginaadministrador' element={<PaginaAdministrador/>}/>
+        <Route path='/paginaoperador' element={<PaginaOperador/>}/>
       </Routes>
     </>
   );
-
-
 }
 
 export default App
