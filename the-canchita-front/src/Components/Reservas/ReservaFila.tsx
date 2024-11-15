@@ -18,7 +18,8 @@ export const ReservaFila:React.FC<reservaProps> = ({reserva,cancelar})=>{
                         <img className="card-img-top" src="/Images/Potrero_1.jpg" alt="Imagen De Cancha"></img>
                         <div className="card-body">
                             <h4 className="card-title">{reserva.nombreCancha}</h4>
-                            <p className="card-text">Horario Reserva {reserva.inicioReserva}</p>
+                            <p className="card-text">Inicio Reserva {reserva.inicioReserva.slice(0,5)}hs</p>
+                            <p className="card-text">Fin Reserva {reserva.finReserva.slice(0,5)}hs</p>
 
                             { reserva.estadoreserva === 'Pendiente' ?(
                                 <h4 className="card-text" style={{color:"yellow"}}>{reserva.estadoreserva}</h4>
