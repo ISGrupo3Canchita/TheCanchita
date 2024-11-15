@@ -1,6 +1,6 @@
 import React, { useState} from "react"
 import { ListadoReserva } from "../Components/Reservas/ListadoReserva";
-import { Canchas, BarraNavegacionUsuario } from "../Components";
+import { Canchas, BarraNavegacion } from "../Components";
 import { UsuarioTipo } from "../Model/UsuarioTipo";
 
 export const PaginaUsuario : React.FC<{usuario:UsuarioTipo}> = (usuario) =>{
@@ -12,7 +12,7 @@ export const PaginaUsuario : React.FC<{usuario:UsuarioTipo}> = (usuario) =>{
 
     return(
         <>
-            <BarraNavegacionUsuario cambio={cambioLista} nombre={nombreUsuario} />
+            <BarraNavegacion cambio={cambioLista} nombre={nombreUsuario} />
             { cualLista === 'Reservas' ?  (
                 <ListadoReserva />
 

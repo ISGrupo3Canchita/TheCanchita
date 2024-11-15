@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { CanchasHabilitadas } from "../../api/CanchasHabilitadas";
+import { CanchasHabilitadas } from "../../api/Cancha/CanchasHabilitadas";
 import { Cancha } from "../../Model/Cancha";
 import { CanchasRow } from "./CanchasRow";
 
