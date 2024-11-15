@@ -1,7 +1,8 @@
 import { useRef } from "react"
 import { UserRegistro } from "../../Model/UserRegistro";
-import { RegistroUsuario } from "../../api/Registro";
 import { Link } from "react-router-dom";
+import { Registrar } from "../../api";
+
 
 export const Registro =()=>{
 
@@ -12,14 +13,13 @@ export const Registro =()=>{
 
 
     const handlerBotonRegistro = ()=>{
-
         const userRegistro:UserRegistro = {
             nombreUsuario:inputNombreRef.current!.value,
             email:inputEmailRef.current!.value,
             TelefonoUsuario:inputTelefonoRef.current!.value,
             contraseñaUsuario:inputConstraseñaRef.current!.value,
         }
-        const respuestaRegistro = RegistroUsuario(userRegistro)
+        const respuestaRegistro = Registrar(userRegistro)
         console.log(respuestaRegistro)
     }
     return(
@@ -77,5 +77,4 @@ export const Registro =()=>{
             </section>
         </>
     )
-
 }

@@ -1,7 +1,7 @@
 import { useRef } from "react"
 import { Link, Navigate } from "react-router-dom";
 import { UsuarioContextoValue } from "../../Context/UsuarioContextoValue.ts";
-import { Ingresar } from "../../api/Ingresar.ts";
+import { Ingresar } from "../../api/index.ts";
 
 export const Login = (ctxUsuario:UsuarioContextoValue) => {
     const inputNombreRef = useRef<HTMLInputElement>(null);

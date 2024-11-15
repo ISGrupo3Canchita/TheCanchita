@@ -1,11 +1,8 @@
-import { UserRegistro } from "../Model/UserRegistro";
-import { theCanchitaApi } from "./Api";
+import { UserRegistro } from "../../Model/UserRegistro";
+import { apiUsuario } from "../apisBases/ApiUsuario";
 
-const Registro_URL = 'usuarios';
-
-
-export const RegistroUsuario= async(userRegistro:UserRegistro)=>{
-    const response = await theCanchitaApi.post(Registro_URL,
+export const Registrar= async(userRegistro:UserRegistro)=>{
+    const response = await apiUsuario.post('',
                         JSON.stringify({
                                         nombre:userRegistro.nombreUsuario,
                                         email:userRegistro.email,

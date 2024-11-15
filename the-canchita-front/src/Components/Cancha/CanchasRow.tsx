@@ -1,15 +1,12 @@
 import React from "react"
 import { Cancha } from "../../Model/Cancha"
 
-
 type canchaProps = {
     cancha : Cancha
 }
 
-
 export const CanchasRow: React.FC<canchaProps>= ( { cancha } ) => {
-
-
+    
     return (
         <>  
              <div className="col-sm-2" >
