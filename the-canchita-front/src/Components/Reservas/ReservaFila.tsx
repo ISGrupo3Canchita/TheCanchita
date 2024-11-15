@@ -1,14 +1,20 @@
 import React, { useContext } from "react"
 import { ReservaTipo } from "../../Model/ReservaTipo"
+import { UsuarioContexto } from "../../Context/UsuarioContexto"
 
 type reservaProps ={
     reserva: ReservaTipo,
-    cancelar:(idReserva:String,nuevoEstado:String)=>void
+    cancelar:(idReserva:String)=>void,
+    confirmar:(idReserva:String)=>void,
 }
-export const ReservaFila:React.FC<reservaProps> = ({reserva,cancelar})=>{
+export const ReservaFila:React.FC<reservaProps> = ({reserva,cancelar, confirmar})=>{
+
+    const{usuario}= useContext(UsuarioContexto)
     const handleCancelar=()=>{
-        const nuevoEstado:String = 'Cancelada';
-        cancelar(reserva.id,nuevoEstado);
+        cancelar(reserva.id,);
+    }
+    const handleConfirmar=()=>{
+        confirmar(reserva.id,);
     }
     return (
         <>
@@ -26,6 +32,14 @@ export const ReservaFila:React.FC<reservaProps> = ({reserva,cancelar})=>{
                             ):(
                                 <h4 className="card-text"style={{color:"green"}}>{reserva.estadoreserva}</h4>
                             )
+                            }
+
+                            {usuario.rol ==='Operador' ? (
+                                <button className="btn btn-danger" 
+                                type="button"
+                                onClick={handleConfirmar}
+                            >Cancelar</button>
+                            ):('')
                             }
                             <button className="btn btn-danger" 
                                 type="button"

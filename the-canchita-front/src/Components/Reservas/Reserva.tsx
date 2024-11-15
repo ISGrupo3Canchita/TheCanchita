@@ -3,10 +3,11 @@ import { ReservaFila } from "./ReservaFila"
 
 type listaReservaProps = {
     cancelar:(idReserva:String)=>void,
+    confirmar:(idReserva:String)=>void,
     reservas:ReservaTipo[]
 }
 
-export const ReservaBase:React.FC<listaReservaProps> = ({reservas,cancelar})=>{
+export const ReservaBase:React.FC<listaReservaProps> = ({reservas,cancelar,confirmar})=>{
 
     return(
         <>
@@ -16,7 +17,7 @@ export const ReservaBase:React.FC<listaReservaProps> = ({reservas,cancelar})=>{
                 <div className="row">
                         {
                             reservas.map((r)=>(
-                                <ReservaFila key={r.id} reserva={r} cancelar={cancelar}   />
+                                <ReservaFila key={r.id} reserva={r} cancelar={cancelar} confirmar={confirmar}  />
                             ))
                         }
                 </div>
