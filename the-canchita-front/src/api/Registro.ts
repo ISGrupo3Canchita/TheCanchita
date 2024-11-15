@@ -5,7 +5,7 @@ const Registro_URL = 'usuarios';
 
 
 export const RegistroUsuario= async(userRegistro:UserRegistro)=>{
-    const response = await theCanchitaApi.post(Registro_URL,
+    const response = await theCanchitaApi.post('',
                         JSON.stringify({
                                         nombre:userRegistro.nombreUsuario,
                                         email:userRegistro.email,
