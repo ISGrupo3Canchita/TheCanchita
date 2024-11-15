@@ -6,7 +6,7 @@ import { Cancha } from "../Model/Cancha";
 import { ReservaTipo } from "../Model/ReservaTipo";
 
 export const PaginaOperador = () => {
-    const token ='eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjdWF0cm9AbWFpbCIsImlhdCI6MTczMTY2ODM3MSwiZXhwIjoxNzMxNjcwMTcxfQ.fKh56cjpqDPVrehKk4DupTrnSfLT9nzZIr6x3QspUDU'
+    
     const {usuario} = useContext(UsuarioContexto)
     const [cualLista, setCualLista]= useState<String>('Reservas');
     const [estado, setEstado] = useState<String>('Pendiente');
@@ -17,14 +17,14 @@ export const PaginaOperador = () => {
         setCualLista(nombre)
     }
     const cancelar = async(idReserva:String)=>{
-        const respuesta = await cancelaReserva(idReserva,estado,token);
-        const listaReserva:ReservaTipo[] = await reservasPorEstado(estado,token);
+        const respuesta = await cancelaReserva(idReserva,estado,usuario.token);
+        const listaReserva:ReservaTipo[] = await reservasPorEstado(estado,usuario.token);
         setReservas(listaReserva);
     }
 
     useEffect(()=>{
         const reservas = async () => {
-            const listaReserva:ReservaTipo[]= await reservasPorEstado(estado,token);
+            const listaReserva:ReservaTipo[]= await reservasPorEstado(estado,usuario.token);
             setReservas(listaReserva)
         };
         reservas();
