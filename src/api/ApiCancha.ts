@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const apiCancha = axios.create({
-    baseURL:'http://localhost:8080/cancha',
+    baseURL:window.location.protocol + "//" + window.location.host + '/api',
     withCredentials:true,
 })
 
