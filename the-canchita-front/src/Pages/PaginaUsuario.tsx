@@ -1,10 +1,11 @@
-import React, { useState} from "react"
+import { useContext, useState} from "react"
 import { ListadoReserva } from "../Components/Reservas/ListadoReserva";
 import { Canchas, BarraNavegacion } from "../Components";
-import { UsuarioTipo } from "../Model/UsuarioTipo";
+import { UsuarioContexto } from "../Context/UsuarioContexto";
 
-export const PaginaUsuario : React.FC<{usuario:UsuarioTipo}> = (usuario) =>{
-    const nombreUsuario = usuario.usuario.nombre;
+export const PaginaUsuario = () =>{
+    const {usuario} = useContext(UsuarioContexto);
+    const nombreUsuario = usuario.nombre;
     const [cualLista, setCualLista]=useState<String>('Reservas');
     const cambioLista =(nombre:String)=>{
         setCualLista(nombre)
@@ -17,7 +18,7 @@ export const PaginaUsuario : React.FC<{usuario:UsuarioTipo}> = (usuario) =>{
                 <ListadoReserva />
 
             ) : (
-                <Canchas token={usuario.usuario.token}/>
+                <Canchas token={usuario.token}/>
             )}
         </>
     )
