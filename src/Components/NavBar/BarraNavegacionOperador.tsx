@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import { UsuarioContexto } from "../../Context/UsuarioContexto"
 
-export const barraNavegacionOperador:React.FC<{cambio: (lista: String) => void} > = ({cambio}) => {
+export const barraNavegacionOperador:React.FC<{cambio: (lista: string) => void} > = ({cambio}) => {
     const{usuario} = useContext(UsuarioContexto)
 
     const handlerCanchas =()=>{

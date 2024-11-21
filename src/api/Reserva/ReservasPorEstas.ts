@@ -2,7 +2,7 @@ import { apiReserva } from "../apisBases/ApiReserva";
 
  const LISTA = '/porestado/'
 
-export const reservasPorEstado= async(estado:String, token:String) => {
+export const reservasPorEstado= async(estado:string, token:string) => {
     const response = await apiReserva.get(LISTA+estado,{
         headers: {
             Authorization: `Bearer `+token

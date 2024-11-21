@@ -5,8 +5,8 @@ import { UsuarioTipo } from "../Model/UsuarioTipo";
 
 export const PaginaUsuario : React.FC<{usuario:UsuarioTipo}> = (usuario) =>{
     const nombreUsuario = usuario.usuario.nombre;
-    const [cualLista, setCualLista]=useState<String>('Reservas');
-    const cambioLista =(nombre:String)=>{
+    const [cualLista, setCualLista]=useState<string>('Reservas');
+    const cambioLista =(nombre:string)=>{
         setCualLista(nombre)
     }
 

@@ -3,10 +3,13 @@ import { useContext } from 'react';
 import { UsuarioContexto } from './Context/UsuarioContexto';
 import { Login, Registro } from './Components';
 import { PaginaAdministrador, PaginaOperador, PaginaUsuario } from './Pages';
+import { Reservar } from './Components';
 
 function App() {
   
   const {usuario,setUsuario} = useContext(UsuarioContexto);
+
+  
 
   return(
     <>
@@ -16,6 +19,7 @@ function App() {
         <Route path='/paginausuario' element = {<PaginaUsuario usuario={usuario}/>}/>
         <Route path='/paginaadministrador' element={<PaginaAdministrador/>}/>
         <Route path='/paginaoperador' element={<PaginaOperador/>}/>
+        <Route path="/reservar/:idCancha" element={<Reservar />} />
       </Routes>
     </>
   );

@@ -2,8 +2,8 @@ import { ReservaTipo } from "../../Model"
 import { ReservaFila } from "./ReservaFila"
 
 type listaReservaProps = {
-    cancelar:(idReserva:String)=>void,
-    confirmar:(idReserva:String)=>void,
+    cancelar:(idReserva:string)=>void,
+    confirmar:(idReserva:string)=>void,
     reservas:ReservaTipo[]
 }
 
