@@ -1,16 +1,19 @@
 import { useContext, useRef } from "react"
-import { Link } from "react-router-dom";
+import { Link,  useNavigate } from "react-router-dom";
 import { Ingresar } from "../../api/index.ts";
 import { UsuarioContexto } from "../../Context/UsuarioContexto.ts";
+import { ProtectedRouter } from "../../Router/ProtectedRouter.tsx";
 
 export const Login = () => {
     const {setUsuario} = useContext(UsuarioContexto)
     const inputNombreRef = useRef<HTMLInputElement>(null);
     const inputContraseñaRef = useRef<HTMLInputElement>(null);
+    const navigate = useNavigate()
 
     const handleIngreso = async() => {
         const usuarioRespuesta= await Ingresar(inputNombreRef.current!.value,inputContraseñaRef.current!.value);
         setUsuario(usuarioRespuesta)
+        navigate('/canchita')
     }
 
     return (

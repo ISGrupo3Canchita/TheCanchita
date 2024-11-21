@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react"
 import { UsuarioContexto } from "../../Context/UsuarioContexto"
 import { listaReservas, cancelaReserva } from "../../api"
 import { ReservaTipo } from "../../Model"
+import { Link } from "react-router-dom"
 
 export const ListadoReserva =()=>{
     const {usuario } = useContext(UsuarioContexto)
@@ -33,6 +34,7 @@ export const ListadoReserva =()=>{
                             ))
                         }
                 </div>
+                <p><Link className="link-opacity-50-hover" to='/admin'>ADMINISTRADOR</Link></p>
             </div>
         </>
     )

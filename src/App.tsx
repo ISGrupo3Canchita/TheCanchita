@@ -30,7 +30,6 @@ function App() {
         <RouterProvider router={AppRouter}>
         </RouterProvider>
       </UsuarioProveedor>
-      
     </>
   )
 }

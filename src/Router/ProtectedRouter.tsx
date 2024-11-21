@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import {  redirect } from "react-router-dom"
+import {  Navigate, Outlet, redirect } from "react-router-dom"
 import { UsuarioContexto } from "../Context/UsuarioContexto"
 
 
@@ -7,14 +7,13 @@ import { UsuarioContexto } from "../Context/UsuarioContexto"
 export const ProtectedRouter=()=>{
 
     const {usuario} = useContext(UsuarioContexto)
-    
+    console.log(usuario)
     return (
         <>
-            { usuario.id ==='' ? (
-                redirect("/")
+            { usuario.rol ==='' ? (
+                <Navigate to='/'/>
             ):(
-                usuario.token ==='Administrador' ? redirect('/paginaadministrador') :
-                usuario.token === 'Operador' ? redirect('/paginaoperador') : redirect('paginausuario')
+                <Outlet/>
             ) 
             }
         </>
