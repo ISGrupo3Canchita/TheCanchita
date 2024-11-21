@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { BarraNavegacion, Canchas,ReservaBase}  from "../Components";
+import { BarraNavegacion, Canchas,ListadoReserva,ReservaBase}  from "../Components";
 import { UsuarioContexto } from "../Context/UsuarioContexto";
 import { cancelaReserva, reservasPorEstado } from "../api";
 import { Cancha } from "../Model/Cancha";
@@ -42,8 +42,7 @@ export const PaginaOperador = () => {
         <>
            <BarraNavegacion cambio={cambioLista}nombre={usuario.nombre}/>
             { cualLista === 'Reservas' ?  (
-               <ReservaBase reservas={reservas} cancelar={cancelar} confirmar={confirmar}/>
-
+               <ListadoReserva key={usuario.id} reservas={reservas} cancelar={cancelar} confirmar={confirmar}/>
             ) : (
                 <Canchas token={usuario.token}/>
             )}
