@@ -7,9 +7,10 @@ import { UsuarioContexto } from "../Context/UsuarioContexto"
 export const ProtectedRouter=()=>{
 
     const {usuario} = useContext(UsuarioContexto)
-    console.log(usuario)
+
     return (
         <>
+            {console.log("EN PROTECTER")}
             { usuario.rol ==='' ? (
                 <Navigate to='/'/>
             ):(
@@ -18,5 +19,4 @@ export const ProtectedRouter=()=>{
             }
         </>
     )
-
 }

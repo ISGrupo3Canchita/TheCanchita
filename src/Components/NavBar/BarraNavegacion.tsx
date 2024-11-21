@@ -1,9 +1,14 @@
 import { useContext } from "react";
 import { UsuarioContexto } from "../../Context/UsuarioContexto";
 
+type navBarProps = { 
+    cambio: (lista: string) => void, 
+    nombre: string,
+}
 
-export const BarraNavegacion: React.FC<{ cambio: (lista: String) => void; nombre: String }> = ({ cambio, nombre }) => {
+export const BarraNavegacion: React.FC<navBarProps> = ({ cambio, nombre }) => {
     const {setUsuario} = useContext(UsuarioContexto);
+
     const handlerCanchas = () => {
         cambio('Canchas');
     };
@@ -12,7 +17,6 @@ export const BarraNavegacion: React.FC<{ cambio: (lista: String) => void; nombre
     };
 
     const handlerlogout = ()=>{
-        console.log("CERRA SESION SI PODES")
         setUsuario({id:'',nombre:'', rol:'', token:'',email:'',telefono:'',codigoRespuesta:0});
     }
 
