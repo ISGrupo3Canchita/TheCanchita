@@ -1,7 +1,8 @@
 import { createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
 import { Login, Registro } from "../Components";
-import { PaginaUsuario, PaginaOperador, PaginaAdministrador, DistributePage } from "../Pages";
+import { PaginaUsuario, PaginaOperador, PaginaAdministrador,} from "../Pages";
 import { ProtectedRouter } from "./ProtectedRouter";
+import { DistributePage } from "./DistributePage";
 
 export const AppRouter = createBrowserRouter(
     createRoutesFromElements(

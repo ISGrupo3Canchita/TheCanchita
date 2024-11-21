@@ -6,7 +6,7 @@ import { CanchasHabilitadas } from "./Cancha/CanchasHabilitadas";
 
 import { cancelaReserva } from "./Reserva/CancelaReserva";
 import { listaReservas } from "./Reserva/ListaReservas";
-import { reservasPorEstado } from "./Reserva/ReservasPorEstas";
+import { reservasPorEstado } from "./Reserva/ReservasPorEstados";
 
 import { Ingresar } from "./Usuario/Ingresar";
 import { Registrar } from "./Usuario/Registrar"

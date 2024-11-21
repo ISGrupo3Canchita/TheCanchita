@@ -34,7 +34,7 @@ export const ReservaFila:React.FC<reservaProps> = ({reserva,cancelar, confirmar}
                             )
                             }
                             {usuario.rol ==='Operador' ? (
-                                <button className="btn btn-danger" 
+                                <button className="btn btn-warning" 
                                 type="button"
                                 onClick={handleConfirmar}
                             >Confirmar</button>
