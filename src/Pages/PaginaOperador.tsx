@@ -41,9 +41,9 @@ export const PaginaOperador = () => {
 
     return(
         <>
-           <BarraNavegacion cambio={cambioLista}nombre={usuario.nombre}/>
+           <BarraNavegacion cambio={cambioLista}nombre={usuario.nombre} rol={usuario.rol}/>
             { cualLista === 'Reservas' ?  (
-               <ListadoReserva key={usuario.id} reservas={reservas} cancelar={cancelar} confirmar={confirmar}/>
+                <ListadoReserva key={usuario.id} reservas={reservas} cancelar={cancelar} confirmar={confirmar} rol={usuario.rol}/>
             ) : (
                 <Canchas token={usuario.token}/>
             )}

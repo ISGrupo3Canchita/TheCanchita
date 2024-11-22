@@ -3,7 +3,6 @@ import { UserRegistro } from "../../Model/UserRegistro";
 import { Link } from "react-router-dom";
 import { Registrar } from "../../api";
 
-
 export const Registro =()=>{
 
     const inputNombreRef = useRef<HTMLInputElement>(null);

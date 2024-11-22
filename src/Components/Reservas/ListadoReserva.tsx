@@ -1,40 +1,40 @@
 import { ReservaFila } from "./ReservaFila"
-import React, { useContext, useEffect, useState } from "react"
-import { UsuarioContexto } from "../../Context/UsuarioContexto"
+import React from "react"
 import { ReservaTipo } from "../../Model"
-import { listaReservas } from "../../api"
+
 
 type listReservaProps = {
     reservas:ReservaTipo[],
     // verReservas: ()=>void,
     cancelar:(idReserva:String)=>void,
     confirmar:(idReserva:String)=>void,
+    rol:string;
 }
 
-export const ListadoReserva:React.FC<listReservaProps> =({cancelar,confirmar,reservas})=>{
-    
-    // const {usuario } = useContext(UsuarioContexto)
-
-    // const [reservas, setReservas] = useState<ReservaTipo[]>([])
-
-    // const verReservas = async()=>{
-    //     const reservas = await listaReservas(usuario.email, usuario.token);
-    //     setReservas(reservas);
-    // }
-
-    // useEffect(()=>{
-    //     verReservas();
-    // },[])
+export const ListadoReserva:React.FC<listReservaProps> =({cancelar,confirmar,reservas,rol})=>{
 
     return (
         <>
             <div className="container-fluid mt-1 text-center" >
-                <h2>Mis Reservas </h2>
-                <p>Mis sueños son dos;
-                    <br/>Mi primer sueño es jugar en el Mundial, 
-                    <br/> y el segundo es salir campeón de Octava"
-                    <br/>Diego Armando Maradona.
-                </p>
+                { rol === 'Operador' ? (
+                    <>
+                        <h2>Listado Pendiente </h2>
+                        <p>“Nunca recibí distinciones a título personal.<br/>
+                         Para mí el “nosotros” siempre estuvo por encima del “yo”.<br/>
+                         <h3>René Favaloro</h3>
+                        </p>
+                    </>
+                ):(
+                    <>
+                        <h2>Mis Reservas </h2>
+                        <p>"Mis sueños son dos;
+                            <br/>Mi primer sueño es jugar en el Mundial, 
+                            <br/> y el segundo es salir campeón de Octava"
+                            <br/><h3>Diego Armando Maradona.</h3>
+                        </p>
+                    </>
+                )
+                }
                 <div className="row">
                         {
                             reservas.map((reserva)=>(
