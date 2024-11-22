@@ -6,8 +6,8 @@ import { ReservaTipo } from "../../Model"
 type listReservaProps = {
     reservas:ReservaTipo[],
     // verReservas: ()=>void,
-    cancelar:(idReserva:String)=>void,
-    confirmar:(idReserva:String)=>void,
+    cancelar:(idReserva:string)=>void,
+    confirmar:(idReserva:string)=>void,
     rol:string;
 }
 

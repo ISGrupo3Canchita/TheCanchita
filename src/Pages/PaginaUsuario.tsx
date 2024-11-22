@@ -18,7 +18,7 @@ export const PaginaUsuario = () =>{
         setCualLista(nombre)
     }
 
-    const cancelar = async(idReserva:String)=>{
+    const cancelar = async(idReserva:string)=>{
         await cancelaReserva(idReserva,'Cancelada',usuario.token);
         setCualLista('Reservas')
         verReservas()

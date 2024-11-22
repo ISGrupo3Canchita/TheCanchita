@@ -17,7 +17,7 @@ export const PaginaOperador = () => {
         setCualLista(nombre)
     }
   
-    const cancelar = async(idReserva:String)=>{
+    const cancelar = async(idReserva:string)=>{
         await cancelaReserva(idReserva,'Cancelada',usuario.token);
         const listaReserva:ReservaTipo[] = await reservasPorEstado('Pendiente',usuario.token);
         setReservas(listaReserva);
@@ -28,7 +28,7 @@ export const PaginaOperador = () => {
         setReservas(listaReserva)
     }
 
-    const confirmar = async(idReserva:String)=>{
+    const confirmar = async(idReserva:string)=>{
         // setEstado('Reservada');
         await cancelaReserva(idReserva,'Reservada',usuario.token);
         const listaReserva:ReservaTipo[] = await reservasPorEstado('Pendiente',usuario.token);
