@@ -8,7 +8,7 @@ export const ListadoReserva =()=>{
     const {usuario } = useContext(UsuarioContexto)
     const [reservas ,setReservas] = useState<ReservaTipo[]>([]);
     
-    const cancelar = async(idReserva:String,nuevoEstado:String)=>{
+    const cancelar = async(idReserva:string,nuevoEstado:string)=>{
         const respuesta = await cancelaReserva(idReserva,nuevoEstado,usuario.token);
         const listaReserva:ReservaTipo[] = await listaReservas(usuario.email, usuario.token);
         setReservas(listaReserva)

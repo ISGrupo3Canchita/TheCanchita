@@ -22,6 +22,17 @@ export const Registro =()=>{
         const respuestaRegistro = Registrar(userRegistro)
         console.log(respuestaRegistro)
     }
+    const handleKeyUp = (e : React.KeyboardEvent) => {
+        if (e.key === "Enter") {
+            if (inputNombreRef.current!.value && inputConstraseñaRef.current!.value && inputEmailRef.current!.value
+                && inputTelefonoRef.current!.value) {
+              handlerBotonRegistro();
+            } else {
+              alert("Por favor, complete los campos");
+            }
+          }
+        };
+    
     return(
         <>
             <section>
@@ -35,6 +46,7 @@ export const Registro =()=>{
                                 className="form-control" 
                                 type="text" 
                                 placeholder="Nombre" 
+                                onKeyUp={handleKeyUp}
                             /></label>
                         </div>
                         <div className="mb-3 mt-3">
@@ -43,7 +55,8 @@ export const Registro =()=>{
                                 ref={inputEmailRef}
                                 className="form-control" 
                                 type="text" 
-                                placeholder="alt+64"
+                                placeholder="ejemplo@gmail.com"
+                                onKeyUp={handleKeyUp}
                             /></label>
                         </div>
                         <div className="mb-3 mt-3">
@@ -51,8 +64,9 @@ export const Registro =()=>{
                             <input
                                 ref={inputTelefonoRef}
                                 className="form-control"
-                                type="String"
+                                type="tel"
                                 placeholder=" 2243 mmm mmm"
+                                onKeyUp={handleKeyUp}
                             /></label>
                         </div>
                         <div className="mb-3 mt-3">
@@ -62,6 +76,7 @@ export const Registro =()=>{
                             className="form-control"
                             type="password"
                             placeholder="********" 
+                            onKeyUp={handleKeyUp}
                             /></label>
                         </div>
                         <button

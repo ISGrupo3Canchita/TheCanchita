@@ -1,4 +1,4 @@
-export const BarraNavegacion: React.FC<{ cambio: (lista: String) => void; nombre: String }> = ({ cambio, nombre }) => {
+export const BarraNavegacion: React.FC<{ cambio: (lista: string) => void; nombre: string }> = ({ cambio, nombre }) => {
     const handlerCanchas = () => {
         cambio('Canchas');
     };

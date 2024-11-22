@@ -1,12 +1,12 @@
 
 
 export type UsuarioTipo ={
-    id:String
-    nombre:String,
-    email:String,
-    rol:String,
-    token:String,
-    telefono:String,
+    id:string
+    nombre:string,
+    email:string,
+    rol:string,
+    token:string,
+    telefono:string,
     codigoRespuesta:number,
 
 }

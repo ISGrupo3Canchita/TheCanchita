@@ -1,12 +1,23 @@
 import React from "react"
 import { Cancha } from "../../Model/Cancha"
 
+import { useNavigate } from "react-router-dom";
+
 type canchaProps = {
     cancha : Cancha
 }
 
+
+
 export const CanchasRow: React.FC<canchaProps>= ( { cancha } ) => {
-    
+    const navigate = useNavigate();
+
+  
+    const handleReserva =() =>{
+        navigate(`/reservar/${cancha.id}`);
+
+    }
+
     return (
         <>  
              <div className="col-sm-2" >
@@ -27,9 +38,12 @@ export const CanchasRow: React.FC<canchaProps>= ( { cancha } ) => {
                                     <h6 className="card-text">{cancha.horarioFin}</h6> 
                             </div> 
                             </div> 
+                            <button type="button" className="btn btn-primary mt-3" onClick={handleReserva}> Reservar </button>
+
                             </div>
                             </div>
                             </div>
+                            
                     </div>
                 </div>
             <div/>

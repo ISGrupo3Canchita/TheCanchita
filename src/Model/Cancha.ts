@@ -1,7 +1,8 @@
 export type Cancha = {
-    nombreCancha : String,
-    direccion : String,
-    horarioInicio : String,
-    horarioFin : String,
-    estado : String
+    id : string,
+    nombreCancha : string,
+    direccion : string,
+    horarioInicio : string,
+    horarioFin : string,
+    estado : string
 }
