@@ -33,12 +33,11 @@ export const ReservaFila:React.FC<reservaProps> = ({reserva,cancelar, confirmar}
                                 <h4 className="card-text"style={{color:"green"}}>{reserva.estadoreserva}</h4>
                             )
                             }
-
                             {usuario.rol ==='Operador' ? (
-                                <button className="btn btn-danger" 
+                                <button className="btn btn-warning" 
                                 type="button"
                                 onClick={handleConfirmar}
-                            >Cancelar</button>
+                            >Confirmar</button>
                             ):('')
                             }
                             <button className="btn btn-danger" 

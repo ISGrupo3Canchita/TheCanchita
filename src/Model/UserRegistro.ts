@@ -1,6 +1,6 @@
 export type UserRegistro ={
-    nombreUsuario:string
-    email:string,
-    TelefonoUsuario:string,
-    contraseñaUsuario:string
+    nombreUsuario:String
+    email:String,
+    TelefonoUsuario:String,
+    contraseñaUsuario:String
 }

@@ -1,10 +1,25 @@
-export const BarraNavegacion: React.FC<{ cambio: (lista: string) => void; nombre: string }> = ({ cambio, nombre }) => {
+import { useContext } from "react";
+import { UsuarioContexto } from "../../Context/UsuarioContexto";
+
+type navBarProps = { 
+    cambio: (lista: string) => void, 
+    nombre: string,
+    rol: string,
+}
+
+export const BarraNavegacion: React.FC<navBarProps> = ({ cambio, nombre, rol }) => {
+    const {setUsuario} = useContext(UsuarioContexto);
+
     const handlerCanchas = () => {
         cambio('Canchas');
     };
     const handlerReservas = () => {
         cambio('Reservas');
     };
+
+    const handlerlogout = ()=>{
+        setUsuario({id:'',nombre:'', rol:'', token:'',email:'',telefono:'',codigoRespuesta:0});
+    }
 
     return (
         <div className="container-fluid text-center">
@@ -16,14 +31,31 @@ export const BarraNavegacion: React.FC<{ cambio: (lista: string) => void; nombre
                     </button>
                     <div className="collapse navbar-collapse" id="mynavbar">
                         <ul className="navbar-nav me-auto">
+                            {rol === 'Usuario' ? (
+                                <>
+                                    <li className="nav-item">
+                                    <button className="nav-link btn" onClick={handlerReservas}>
+                                        Mis Reservas
+                                    </button>
+                                    </li>
+                                    <li className="nav-item">
+                                        <button className="nav-link btn" onClick={handlerCanchas}>
+                                            Canchas
+                                        </button>
+                                    </li>
+                                </>
+                            ):(
+                               <>
+                                <li className="nav-item">
+                                    <button className="nav-link btn" onClick={handlerReservas}>
+                                        Lista Pendiente
+                                    </button>
+                                    </li>
+                               </> 
+                            )}
                             <li className="nav-item">
-                                <button className="nav-link btn" onClick={handlerReservas}>
-                                    Mis Reservas
-                                </button>
-                            </li>
-                            <li className="nav-item">
-                                <button className="nav-link btn" onClick={handlerCanchas}>
-                                    Canchas
+                                <button className="nav-link btn" onClick={handlerlogout}>
+                                    Cerrar Sesion
                                 </button>
                             </li>
                         </ul>

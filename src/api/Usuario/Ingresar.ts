@@ -15,6 +15,5 @@ export const Ingresar= async(user:string,pwd:string) => {
                 token:response.data.token,
                 codigoRespuesta: response.status,
         }
-        console.log(datosUsuario.token)
         return datosUsuario
     }
