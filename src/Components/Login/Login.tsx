@@ -16,6 +16,17 @@ export const Login = () => {
         navigate('/canchita')
     }
 
+    const handleKeyUp = (e: React.KeyboardEvent) => {
+        if (e.key === "Enter") {
+          if (inputNombreRef.current!.value && inputContraseñaRef.current!.value) {
+            handleIngreso();
+          } else {
+            alert("Por favor, complete los campos");
+          }
+        }
+      };
+    
+
     return (
         <>
             <section>
@@ -29,6 +40,7 @@ export const Login = () => {
                                 type="text"
                                 placeholder="Tu Email"
                                 required
+                                onKeyUp={handleKeyUp}
                             /></label>
                         </div>
                         <div className="mb-3">
@@ -38,6 +50,7 @@ export const Login = () => {
                                 type="password"
                                 placeholder="del 1 al 8"
                                 required
+                                onKeyUp={handleKeyUp}
                             /></label>
                         </div>
                         <button className="btn btn-success" 
