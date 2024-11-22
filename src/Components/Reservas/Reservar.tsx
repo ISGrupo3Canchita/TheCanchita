@@ -11,10 +11,6 @@ export const Reservar: React.FC = () => {
     const [inicioReserva, setInicioReserva] = useState<string>("");
     const [finReserva, setFinReserva] = useState<string>("");
     const [mensaje, setMensaje] = useState<string | null>(null);
-    
-    
-
-
     const handleReserva = async () => {
         try {
             const reserva: ReservaModel = {
@@ -42,7 +38,7 @@ export const Reservar: React.FC = () => {
 
     
     const handleBotonVolver = () =>{
-        navigate('/paginausuario')
+        navigate('/canchita')
     }
 
 

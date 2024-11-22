@@ -7,15 +7,11 @@ type canchaProps = {
     cancha : Cancha
 }
 
-
-
 export const CanchasRow: React.FC<canchaProps>= ( { cancha } ) => {
     const navigate = useNavigate();
 
-  
     const handleReserva =() =>{
         navigate(`/reservar/${cancha.id}`);
-
     }
 
     return (

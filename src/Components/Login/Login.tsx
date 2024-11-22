@@ -2,7 +2,6 @@ import { useContext, useRef } from "react"
 import { Link,  useNavigate } from "react-router-dom";
 import { Ingresar } from "../../api/index.ts";
 import { UsuarioContexto } from "../../Context/UsuarioContexto.ts";
-import { ProtectedRouter } from "../../Router/ProtectedRouter.tsx";
 
 export const Login = () => {
     const {setUsuario} = useContext(UsuarioContexto)
