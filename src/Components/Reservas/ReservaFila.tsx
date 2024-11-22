@@ -4,17 +4,17 @@ import { UsuarioContexto } from "../../Context/UsuarioContexto"
 
 type reservaProps ={
     reserva: ReservaTipo,
-    cancelar:(idReserva:String)=>void,
-    confirmar:(idReserva:String)=>void,
+    cancelar:(idReserva:string, estado:string)=>void,
+    confirmar:(idReserva:string, estado:string)=>void,
 }
 export const ReservaFila:React.FC<reservaProps> = ({reserva,cancelar, confirmar})=>{
 
     const{usuario}= useContext(UsuarioContexto)
     const handleCancelar=()=>{
-        cancelar(reserva.id,);
+        cancelar(reserva.id, "Cancelada");
     }
     const handleConfirmar=()=>{
-        confirmar(reserva.id,);
+        confirmar(reserva.id,"Reservada");
     }
     return (
         <>

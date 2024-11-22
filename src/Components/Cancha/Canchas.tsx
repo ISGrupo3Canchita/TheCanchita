@@ -3,7 +3,7 @@ import { CanchasHabilitadas } from "../../api/Cancha/CanchasHabilitadas";
 import { Cancha } from "../../Model/Cancha";
 import { CanchasRow } from "./CanchasRow";
 
-export const Canchas : React.FC<{token:String}>= ( { token } ) => {
+export const Canchas : React.FC<{token:string}>= ( { token } ) => {
     const [canchas, setCanchas] = useState<Cancha[]>([]);
     useEffect(() => {
         const fetchCanchas = async () => {

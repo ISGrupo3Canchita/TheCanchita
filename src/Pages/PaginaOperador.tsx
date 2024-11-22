@@ -13,7 +13,7 @@ export const PaginaOperador = () => {
     const [reservas,setReservas] = useState<ReservaTipo[]>([]);
     const [canchas,setCanchas]=useState<Cancha[]>([]);
     
-    const cambioLista =(nombre:String)=>{
+    const cambioLista =(nombre:string)=>{
         setCualLista(nombre)
     }
   
