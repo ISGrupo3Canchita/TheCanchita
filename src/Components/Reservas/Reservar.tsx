@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { HacerReserva } from "../../api/Reserva/HacerReserva";
 import { ReservaModel } from "../../Model";
 import { UsuarioContexto } from "../../Context/UsuarioContexto";
+import { BarraNavegacion } from "../NavBar/BarraNavegacion";
 
 export const Reservar: React.FC = () => {
     const  navigate  = useNavigate();
@@ -11,6 +12,8 @@ export const Reservar: React.FC = () => {
     const [inicioReserva, setInicioReserva] = useState<string>("");
     const [finReserva, setFinReserva] = useState<string>("");
     const [mensaje, setMensaje] = useState<string | null>(null);
+    const [gif, setGif] = useState<string>("");
+
     const handleReserva = async () => {
         try {
             const reserva: ReservaModel = {
@@ -25,7 +28,12 @@ export const Reservar: React.FC = () => {
             console.log("ID Usuario ", usuario);
 
             //Revisar esto pq aun no me convence tener que setter asi el mensaje, buscar alternativa para retornar la data en el HacerReserva
-            setMensaje(await HacerReserva(reserva, usuario.token));
+            //setMensaje(await HacerReserva(reserva, usuario.token));
+            const respuesta = await HacerReserva(reserva, usuario.token); setMensaje(mensaje);
+            
+            setMensaje(respuesta)
+
+            setGif(respuesta === "Reserva Guardada" ? "/gifs/bananeroAprobado.gif" : "/gifs/bananeroError.gif")
 
 
         } catch (error) {
@@ -41,8 +49,11 @@ export const Reservar: React.FC = () => {
         navigate('/canchita')
     }
 
+    
 
     return (
+        <>
+        <BarraNavegacion key={usuario.id} cambio={handleBotonVolver} nombre={usuario.nombre} rol={usuario.rol} />
         <div className="container">
             <h1>Reservar Cancha</h1>
             <form onSubmit={(e) => e.preventDefault()}>
@@ -71,13 +82,14 @@ export const Reservar: React.FC = () => {
                 </button>
             </form>
             
-            <button type="button" onClick={handleBotonVolver} className="btn btn-primary mt-3"> Volver A mi Perfil</button>
 
             {mensaje && <p className="mt-3">{mensaje}</p>}
             
+            {gif && <img src={gif} />} 
+
         </div>
             
-            
+        </>    
     );
 
     
