@@ -3,6 +3,7 @@ import { apiReserva} from "./apisBases/ApiReserva";
 import { apiUsuario } from "./apisBases/ApiUsuario";
 
 import { CanchasHabilitadas } from "./Cancha/CanchasHabilitadas";
+import { CrearCancha } from "./Cancha/crearCancha";
 
 import { cancelaReserva } from "./Reserva/CancelaReserva";
 import { listaReservas } from "./Reserva/ListaReservas";
@@ -12,7 +13,7 @@ import { Ingresar } from "./Usuario/Ingresar";
 import { Registrar } from "./Usuario/Registrar"
 
 export { apiCancha, apiReserva,apiUsuario,
-        CanchasHabilitadas, 
+        CanchasHabilitadas, CrearCancha, 
         cancelaReserva, listaReservas, reservasPorEstado, 
         Ingresar, Registrar,
     }
