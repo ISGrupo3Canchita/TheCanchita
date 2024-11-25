@@ -15,32 +15,37 @@ export const ListadoReserva:React.FC<listReservaProps> =({cancelar,confirmar,res
 
     return (
         <>
-            <div className="container-fluid mt-1 text-center" >
-                { rol === 'Operador' ? (
-                    <>
-                        <h2>Listado Pendiente </h2>
-                        <p>“Nunca recibí distinciones a título personal.<br/>
-                         Para mí el “nosotros” siempre estuvo por encima del “yo”.<br/>
-                         <h3>René Favaloro</h3>
-                        </p>
-                    </>
-                ):(
-                    <>
-                        <h2>Mis Reservas </h2>
-                        <p>"Mis sueños son dos;
-                            <br/>Mi primer sueño es jugar en el Mundial, 
-                            <br/> y el segundo es salir campeón de Octava"
-                            <br/><h3>Diego Armando Maradona.</h3>
-                        </p>
-                    </>
-                )
-                }
+            <div className="container mt-3" >
                 <div className="row">
-                        {
-                            reservas.map((reserva)=>(
-                                <ReservaFila key={reserva.id} reserva={reserva} cancelar={cancelar} confirmar={confirmar}   />
-                            ))
+                    <div className="col-sm-2 text-center bg-light">
+                        { rol === 'Operador' ? (
+                            <>
+                                <h4>Reservas Pendiente </h4>
+                                <p>“Nunca recibí distinciones a título personal.
+                                Para mí el “nosotros” siempre estuvo por encima del “yo”.<br/></p>
+                                <h6>René Favaloro</h6>
+                                
+                            </>
+                        ):(
+                            <>
+                                <h4>Mis Reservas </h4>
+                                <p>"Mis sueños son dos;<br/>  Jugar en el Mundial, y salir campeón de Octava"<br/> </p>
+                                   <h6>Diego A. Maradona</h6> 
+                            </>
+                        )
                         }
+                    </div>
+
+                    <div className="col-sm-10 bg-light">
+                        <div className="container row">
+                            {
+                                reservas.map((reserva)=>(
+                                    <ReservaFila key={reserva.id} reserva={reserva} cancelar={cancelar} confirmar={confirmar} />
+                                ))
+                            }
+                            
+                        </div>
+                    </div>
                 </div>
             </div>
         </>

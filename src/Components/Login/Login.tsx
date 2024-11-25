@@ -29,7 +29,7 @@ export const Login = () => {
     return (
         <>
             <section>
-                <div className="container pt-5 text-center">
+                <div className="container pt-5 my-5 text-center border">
                     <h2> Ingresar a The Canchita Club</h2>
                     <form>
                         <div className="mb-3 mt-3">

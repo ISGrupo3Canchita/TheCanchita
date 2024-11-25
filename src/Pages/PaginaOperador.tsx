@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { BarraNavegacion, Canchas,ListadoReserva}  from "../Components";
 import { UsuarioContexto } from "../Context/UsuarioContexto";
-import { cancelaReserva, reservasPorEstado } from "../api";
+import { cancelaReserva, listaReservasParaOperador, reservasPorEstado } from "../api";
 import { Cancha } from "../Model/Cancha";
 import { ReservaTipo } from "../Model/ReservaTipo";
 
@@ -19,20 +19,17 @@ export const PaginaOperador = () => {
   
     const cancelar = async(idReserva:string)=>{
         await cancelaReserva(idReserva,'Cancelada',usuario.token);
-        const listaReserva:ReservaTipo[] = await reservasPorEstado('Pendiente',usuario.token);
-        setReservas(listaReserva);
+        verReservas();
     }
     
     const verReservas = async () => {
-        const listaReserva:ReservaTipo[]= await reservasPorEstado('Pendiente',usuario.token);
+        const listaReserva:ReservaTipo[]= await listaReservasParaOperador(usuario.token);
         setReservas(listaReserva)
     }
 
     const confirmar = async(idReserva:string)=>{
-        // setEstado('Reservada');
         await cancelaReserva(idReserva,'Reservada',usuario.token);
-        const listaReserva:ReservaTipo[] = await reservasPorEstado('Pendiente',usuario.token);
-        setReservas(listaReserva);
+        verReservas();
     }
 
     useEffect(()=>{
