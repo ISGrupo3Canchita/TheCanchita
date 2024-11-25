@@ -1,4 +1,4 @@
-import { useContext, useRef } from "react";
+import { useContext, useRef, useState } from "react";
 import { CrearCancha } from "../../api"
 import { BarraNavegacion } from "../NavBar/BarraNavegacion"
 import { Cancha } from "../../Model";
@@ -12,6 +12,7 @@ export const CanchaCreate : React.FC<{token:string}> = ( { token } ) => {
 
     const  navigate  = useNavigate();
     const { usuario } = useContext(UsuarioContexto);
+    const [mensaje, setMensaje] = useState<string | null>(null);
     const inputNombreRef = useRef<HTMLInputElement>(null);
     const inputDireccionRef = useRef<HTMLInputElement>(null);
     const inputHorarioInicio = useRef<HTMLInputElement>(null);
@@ -19,8 +20,10 @@ export const CanchaCreate : React.FC<{token:string}> = ( { token } ) => {
     const inputEstado = useRef<HTMLInputElement>(null);
 
 
-    const handlerBotonCrear = () => {
+
+    const handlerBotonCrear = async () => {
         const cancha: Cancha = {
+            id              : "",
             nombreCancha    : inputNombreRef.current!.value,
             direccion       : inputDireccionRef.current!.value,
             horarioInicio   : inputHorarioInicio.current!.value,
@@ -29,8 +32,10 @@ export const CanchaCreate : React.FC<{token:string}> = ( { token } ) => {
         }
         console.log(cancha);
         
-        const respuesta = CrearCancha(cancha, token);
-        console.log(respuesta)
+        const respuesta = await CrearCancha(cancha, token);
+        setMensaje(respuesta);
+        console.log(mensaje);
+        
     }
 
     const handleKeyUp= (e : React.KeyboardEvent) => {
@@ -112,6 +117,7 @@ export const CanchaCreate : React.FC<{token:string}> = ( { token } ) => {
                             Crear Cancha
                 </button>
             </form>
+            {mensaje && <p className="mt-3">{mensaje}</p>}
         </div>
         </>
     )

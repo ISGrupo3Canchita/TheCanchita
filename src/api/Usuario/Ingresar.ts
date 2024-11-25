@@ -13,6 +13,7 @@ export const Ingresar= async(user:string,pwd:string) => {
                 rol:response.data.rol,
                 telefono:response.data.telefono,
                 token:response.data.token,
+                cantidadReservas:response.data.cantidadReserva,
                 codigoRespuesta: response.status,
         }
         return datosUsuario

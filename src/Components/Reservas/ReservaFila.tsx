@@ -12,6 +12,7 @@ export const ReservaFila:React.FC<reservaProps> = ({reserva,cancelar, confirmar}
     const{usuario}= useContext(UsuarioContexto)
     const handleCancelar=()=>{
         cancelar(reserva.id, "Cancelada");
+        usuario.cantidadReservas = usuario.cantidadReservas - 1
     }
     const handleConfirmar=()=>{
         confirmar(reserva.id,"Reservada");
