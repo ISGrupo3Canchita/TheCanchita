@@ -29,11 +29,12 @@ export const Reservar: React.FC = () => {
 
             //Revisar esto pq aun no me convence tener que setter asi el mensaje, buscar alternativa para retornar la data en el HacerReserva
             //setMensaje(await HacerReserva(reserva, usuario.token));
-            const respuesta = await HacerReserva(reserva, usuario.token); setMensaje(mensaje);
+            const respuesta = await HacerReserva(reserva, usuario.token); 
             
             setMensaje(respuesta)
 
             setGif(respuesta === "Reserva Guardada" ? "/gifs/bananeroAprobado.gif" : "/gifs/bananeroError.gif")
+            respuesta === "Reserva Guardada" ? usuario.cantidadReservas = usuario.cantidadReservas + 1 : ""
 
 
         } catch (error) {

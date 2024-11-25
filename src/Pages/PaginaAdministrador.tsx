@@ -1,5 +1,6 @@
 import { useContext } from "react"
 import { UsuarioContexto } from "../Context/UsuarioContexto"
+import { CanchaCreate } from "../Components/Cancha/CanchaCreate"
 
 export const PaginaAdministrador  = () => {
 
@@ -7,10 +8,7 @@ export const PaginaAdministrador  = () => {
 
     return(
         <>
-            
-            <h1>Soy D10s</h1>
-            <h2></h2>
-            <h3></h3>
+            <CanchaCreate key={usuario.id} token={usuario.token}/>
         </>
     )
 }
