@@ -7,6 +7,7 @@ export const PaginaAdministrador  = () => {
     const {usuario} = useContext(UsuarioContexto)
 
     return(
+        <>
             <h1>{usuario.nombre}</h1>
             <CanchaCreate key={usuario.id} token={usuario.token}/>
 

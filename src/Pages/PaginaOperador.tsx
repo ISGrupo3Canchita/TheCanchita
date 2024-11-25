@@ -1,8 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { BarraNavegacion, Canchas,ListadoReserva}  from "../Components";
 import { UsuarioContexto } from "../Context/UsuarioContexto";
-import { cancelaReserva, listaReservasParaOperador, reservasPorEstado } from "../api";
-import { Cancha } from "../Model/Cancha";
+import { cancelaReserva, listaReservasParaOperador } from "../api";
 import { ReservaTipo } from "../Model/ReservaTipo";
 
 export const PaginaOperador = () => {
@@ -11,7 +10,7 @@ export const PaginaOperador = () => {
     const [cualLista, setCualLista]= useState<String>('Reservas');
     // const [estado, setEstado] = useState<String>('Pendiente');
     const [reservas,setReservas] = useState<ReservaTipo[]>([]);
-    const [canchas,setCanchas]=useState<Cancha[]>([]);
+
     
     const cambioLista =(nombre:string)=>{
         setCualLista(nombre)

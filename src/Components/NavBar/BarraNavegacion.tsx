@@ -16,7 +16,7 @@ export const BarraNavegacion: React.FC<navBarProps> = ({ cambio, nombre, rol }) 
         cambio('Reservas');
     };
     const handlerlogout = ()=>{
-        setUsuario({id:'',nombre:'', rol:'', token:'',email:'',telefono:'',codigoRespuesta:0});
+        setUsuario({id:'',nombre:'', rol:'', token:'',email:'',telefono:'',codigoRespuesta:0,cantidadReservas:0});
     }
     return (
         <>

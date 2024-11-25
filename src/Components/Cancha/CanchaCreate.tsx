@@ -56,7 +56,7 @@ export const CanchaCreate : React.FC<{token:string}> = ( { token } ) => {
 
     return (
         <>
-        <BarraNavegacion cambio={handleVolver} key={usuario.id} nombre={usuario.nombre} rol={usuario.rol} />
+        {/* <BarraNavegacion cambio={handleVolver} key={usuario.id} nombre={usuario.nombre} rol={usuario.rol} /> */}
         <div className="container pt-5 my-5 text-center border">
             <h2>Crear Cancha</h2>
             <form>
