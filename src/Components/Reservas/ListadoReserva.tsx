@@ -36,7 +36,7 @@ export const ListadoReserva:React.FC<listReservaProps> =({cancelar,confirmar,res
                         }
                     </div>
 
-                    <div className="col-sm-10bg-light">
+                    <div className="col-sm-10 bg-light">
                         <div className="container row">
                             {
                                 reservas.map((reserva)=>(
