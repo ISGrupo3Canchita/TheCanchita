@@ -86,7 +86,7 @@ export const Registro =()=>{
                             Registrarme
                         </button>
                     </form>
-                    <p><Link className="link-opacity-50-hover" to='/'>No Man Ya Estoy Registrado</Link></p>
+                    <p><Link className="link-opacity-50-hover" to='/'>Ya Estoy Registrado</Link></p>
                 </div>
             </section>
         </>

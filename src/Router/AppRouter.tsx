@@ -1,6 +1,6 @@
 import { createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
 import { Login, Registro, Reservar } from "../Components";
-import { PaginaUsuario, PaginaOperador, PaginaAdministrador,} from "../Pages";
+import { PaginaUsuario, PaginaOperador, PaginaAdministrador,PageError} from "../Pages";
 import { ProtectedRouter } from "./ProtectedRouter";
 import { DistributePage } from "./DistributePage";
 
@@ -9,7 +9,7 @@ export const AppRouter = createBrowserRouter(
         <>
             <Route path='/' element = { <Login /> } />
             <Route path='/registro' element = {<Registro/>} />
-
+            <Route path='/error' errorElement={<PageError/>}/>
             <Route element = {<ProtectedRouter />}>
                 <Route path="/" element={<DistributePage />}>
                     <Route path='/canchita' element = {<PaginaUsuario/>}/>
