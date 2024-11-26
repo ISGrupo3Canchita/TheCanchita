@@ -3,17 +3,16 @@ import { UsuarioContexto } from "../../Context/UsuarioContexto";
 
 type navBarProps = { 
     cambio: (lista: string) => void, 
-    nombre: string,
-    rol: string,
+    nombre: string
 }
 
-export const BarraNavegacion: React.FC<navBarProps> = ({ cambio, nombre, rol }) => {
+export const BarraNavegacionAdministrador: React.FC<navBarProps> = ({ cambio, nombre }) => {
     const {setUsuario} = useContext(UsuarioContexto);
     const handlerCanchas = () => {
-        cambio('Canchas');
+        cambio('crearCancha');
     };
-    const handlerReservas = () => {
-        cambio('Reservas');
+    const handlerUsuarios = () => {
+        cambio('listaUsuarios');
     };
     const handlerlogout = ()=>{
         setUsuario({id:'',nombre:'', rol:'', token:'',email:'',telefono:'',codigoRespuesta:0,cantidadReservas:0});
@@ -25,22 +24,16 @@ export const BarraNavegacion: React.FC<navBarProps> = ({ cambio, nombre, rol }) 
                     <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Logo_River_Plate.png" alt="RiverPlate" width="30" height="24"/>
                     <div className="collapse navbar-collapse" id="mynavbar">
                         <ul className="navbar-nav me-auto">
-                            {rol === 'Usuario' ? (
+                            
                                 <>
                                     <li className="nav-item">
-                                        <button className="nav-link btn" onClick={handlerReservas}>Mis Reservas</button>
+                                        <button className="nav-link btn" onClick={handlerCanchas}>Crear Cancha</button>
                                     </li>
                                     <li className="nav-item">
-                                        <button className="nav-link btn" onClick={handlerCanchas}>Canchas</button>
+                                        <button className="nav-link btn" onClick={handlerUsuarios}>Lista de Usuarios</button>
                                     </li>
                                 </>
-                            ):(
-                                <>
-                                    <li className="nav-item">
-                                        <button className="nav-link btn" onClick={handlerReservas}>Lista Pendiente</button>
-                                    </li>
-                                </> 
-                            )}
+
                         </ul>
                     </div>
                 </div>

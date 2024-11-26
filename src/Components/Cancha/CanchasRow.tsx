@@ -21,7 +21,6 @@ export const CanchasRow: React.FC<canchaProps>= ( { cancha } ) => {
     return (
         <>  
              <div className="container col-sm-2 mt3 text-center" >
-                
                     <div className="card" style={{width:200, backgroundColor:"#C7C7C7 "}}>
                         <img className="card-img-top" src="/Images/cancha.jpg" alt="Imagen De Cancha"></img>
                             <div className="card-body">
