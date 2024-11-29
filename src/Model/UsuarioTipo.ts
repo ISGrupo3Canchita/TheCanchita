@@ -1,5 +1,4 @@
 
-
 export type UsuarioTipo ={
     id:string
     nombre:string,
@@ -8,6 +7,7 @@ export type UsuarioTipo ={
     token:string,
     telefono:string,
     codigoRespuesta:number,
+    cantidadReservas:number,
 
 }
 

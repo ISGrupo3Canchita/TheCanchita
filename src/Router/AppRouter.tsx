@@ -7,9 +7,8 @@ import { DistributePage } from "./DistributePage";
 export const AppRouter = createBrowserRouter(
     createRoutesFromElements(
         <>
-            <Route path='/' element = { <Login /> } />
+            <Route path='/' element = {<Login />} errorElement={<PageError/>}/>
             <Route path='/registro' element = {<Registro/>} />
-            <Route path='/error' errorElement={<PageError/>}/>
             <Route element = {<ProtectedRouter />}>
                 <Route path="/" element={<DistributePage />}>
                     <Route path='/canchita' element = {<PaginaUsuario/>}/>

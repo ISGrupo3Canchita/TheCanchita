@@ -11,5 +11,5 @@ export const Registrar= async(userRegistro:UserRegistro)=>{
                         }),{
                         headers: {'Content-Type' : 'application/json'},
                             withCredentials: true})
-    return response
+    return response.data
 }

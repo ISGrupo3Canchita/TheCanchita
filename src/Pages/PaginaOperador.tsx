@@ -11,7 +11,7 @@ export const PaginaOperador = () => {
     const [cualLista, setCualLista]= useState<String>('Reservas');
     // const [estado, setEstado] = useState<String>('Pendiente');
     const [reservas,setReservas] = useState<ReservaTipo[]>([]);
-    const [canchas,setCanchas]=useState<Cancha[]>([]);
+    
     
     const cambioLista =(nombre:string)=>{
         setCualLista(nombre)
