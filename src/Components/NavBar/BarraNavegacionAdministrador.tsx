@@ -37,11 +37,10 @@ export const BarraNavegacionAdministrador: React.FC<navBarProps> = ({ cambio, no
                         </ul>
                     </div>
                 </div>
-                <div className="container-fluid ">
-                    <span className="navbar-text">{nombre}</span>
-                    <img  src="https://upload.wikimedia.org/wikipedia/commons/5/56/Escudo_de_Racing_Club_%282014%29.svg" alt="RacingClub" width="30" height="24"/>
-                    <button className="nav-link btn" onClick={handlerlogout}>Cerrar Sesion</button>
-                    
+                <div className="container-fluid d-flex justify-content-end align-items-center">
+                    <span className="navbar-text me-2">{nombre}</span>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/56/Escudo_de_Racing_Club_%282014%29.svg" alt="RacingClub" width="30" height="24"/>
+                    <button className="nav-link btn ms-2" onClick={handlerlogout}>Cerrar Sesion</button>
                 </div>
             </nav>
         </>

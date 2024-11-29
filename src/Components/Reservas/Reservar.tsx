@@ -1,9 +1,11 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { HacerReserva } from "../../api/Reserva/HacerReserva";
-import { ReservaModel } from "../../Model";
+import { ReservaTipo } from "../../Model";
 import { UsuarioContexto } from "../../Context/UsuarioContexto";
 import { BarraNavegacion } from "../NavBar/BarraNavegacion";
+import { TraerCancha } from "../../api/Cancha/TraerCancha";
+import { Cancha } from "../../Model";
 
 export const Reservar: React.FC = () => {
     const  navigate  = useNavigate();
@@ -13,14 +15,19 @@ export const Reservar: React.FC = () => {
     const [finReserva, setFinReserva] = useState<string>("");
     const [mensaje, setMensaje] = useState<string | null>(null);
     const [gif, setGif] = useState<string>("");
+    const [cancha, setCancha] = useState<Cancha>()
 
     const handleReserva = async () => {
         try {
-            const reserva: ReservaModel = {
+            const reserva: ReservaTipo = {
                 idCancha: idCancha!,
                 idUsuario: usuario.id, 
                 inicioReserva,
                 finReserva,
+                estadoreserva: '',
+                id: '',
+                nombreCancha: '',
+                nombreUsuario: ''
                 
             };
 
@@ -50,7 +57,14 @@ export const Reservar: React.FC = () => {
         navigate('/canchita')
     }
 
-    
+    useEffect( () => {
+        const canchaDatos = async () =>{
+            const cancha = await TraerCancha(idCancha, usuario.token);
+
+            setCancha(cancha);
+        };
+        canchaDatos();
+    }, [])
 
     return (
         <>
@@ -78,6 +92,12 @@ export const Reservar: React.FC = () => {
                         required
                     />
                 </div>
+                <div className="container-fluid mt-1 text-center" >
+                    <div className="row">
+                    La cancha: "{cancha?.nombreCancha}" tiene abierto de: {cancha?.horarioInicio.slice(0,5)}hs hasta: {cancha?.horarioFin.slice(0,5)}hs 
+                    </div>
+                </div>
+
                 <button type="submit" onClick={handleReserva} className="btn btn-primary mt-3">
                     Confirmar Reserva
                 </button>

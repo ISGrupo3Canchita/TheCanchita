@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react"
+import { useContext, useState } from "react"
 import { UsuarioContexto } from "../Context/UsuarioContexto"
 import { CanchaCreate } from "../Components/Cancha/CanchaCreate"
 import { BarraNavegacionAdministrador } from "../Components/NavBar/BarraNavegacionAdministrador"
@@ -6,7 +6,7 @@ import { BarraNavegacionAdministrador } from "../Components/NavBar/BarraNavegaci
 export const PaginaAdministrador  = () => {
 
     const {usuario} = useContext(UsuarioContexto)
-    const [cualInterfaz, setCualInterfaz]=useState<string>('crearCanchas');
+    const [cualInterfaz, setCualInterfaz]=useState<string>('crearCancha');
 
     const cambiarInterfaz = (interfaz:string) => {
         setCualInterfaz(interfaz);

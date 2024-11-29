@@ -1,7 +1,7 @@
 import { apiReserva } from "../apisBases/ApiReserva";
-import { ReservaModel } from "../../Model";
+import { ReservaModel, ReservaTipo } from "../../Model";
 
-export const HacerReserva = async (reserva: ReservaModel, token: string) => {
+export const HacerReserva = async (reserva: ReservaTipo, token: string) => {
 
     console.log(reserva);
     
