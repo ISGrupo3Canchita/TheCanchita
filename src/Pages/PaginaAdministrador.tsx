@@ -11,7 +11,7 @@ import { CanchaCreate } from "../Components/Cancha/CanchaCreate"
 export const PaginaAdministrador  = () => {
 
     const {usuario} = useContext(UsuarioContexto)
-    const [cualInterfaz, setCualInterfaz]=useState<string>('Usuarios');
+    const [cualInterfaz, setCualInterfaz]=useState<string>('listaUsuarios');
     const [usuarios,setUsuarios] = useState<UsuarioTipo[]>([])
 
     const cambiarInterfaz = (interfaz:string) => {
@@ -36,7 +36,7 @@ export const PaginaAdministrador  = () => {
     return(
         <>  
             <BarraNavegacionAdministrador key={usuario.nombre} nombre={usuario.nombre} cambio={cambiarInterfaz} />
-            {cualInterfaz === 'Usuarios'?(
+            {cualInterfaz === 'listaUsuarios'?(
                 <UsuarioLista key={usuario.id} cambioRol={cambioRol} usuarios={usuarios}/>
             ):(
                 <CanchaCreate key={usuario.id} token={usuario.token}/>
