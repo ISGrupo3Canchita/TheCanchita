@@ -79,6 +79,7 @@ export const Reservar: React.FC = () => {
                         value={inicioReserva}
                         onChange={(e) => setInicioReserva(e.target.value)}
                         className="form-control"
+                        style={{ width: '100px' }}
                         required
                     />
                 </div>
@@ -89,6 +90,7 @@ export const Reservar: React.FC = () => {
                         value={finReserva}
                         onChange={(e) => setFinReserva(e.target.value)}
                         className="form-control"
+                        style={{ width: '100px' }}
                         required
                     />
                 </div>
@@ -106,7 +108,7 @@ export const Reservar: React.FC = () => {
 
             {mensaje && <p className="mt-3">{mensaje}</p>}
             
-            {gif && <img src={gif} />} 
+            {gif && <img src={gif} style={{ width: '20%', height: 'auto' }} />}
 
         </div>
             

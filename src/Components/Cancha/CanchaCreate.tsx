@@ -17,7 +17,7 @@ export const CanchaCreate : React.FC<{token:string}> = ( { token } ) => {
     const inputDireccionRef = useRef<HTMLInputElement>(null);
     const inputHorarioInicio = useRef<HTMLInputElement>(null);
     const inputHorarioFin = useRef<HTMLInputElement>(null);
-    const inputEstado = useRef<HTMLInputElement>(null);
+    const [estado, setEstado] = useState<string>("");
 
 
 
@@ -28,7 +28,7 @@ export const CanchaCreate : React.FC<{token:string}> = ( { token } ) => {
             direccion       : inputDireccionRef.current!.value,
             horarioInicio   : inputHorarioInicio.current!.value,
             horarioFin      : inputHorarioFin.current!.value,
-            estado          : inputEstado.current!.value
+            estado          : estado
         }
         console.log(cancha);
         
@@ -41,7 +41,7 @@ export const CanchaCreate : React.FC<{token:string}> = ( { token } ) => {
     const handleKeyUp= (e : React.KeyboardEvent) => {
         if (e.key === "Enter") {
             if (inputNombreRef.current!.value && inputDireccionRef.current!.value && inputHorarioInicio.current!.value &&
-                inputHorarioFin.current!.value && inputEstado.current!.value){
+                inputHorarioFin.current!.value && estado){
                 handlerBotonCrear();
             }
             else{
@@ -81,35 +81,36 @@ export const CanchaCreate : React.FC<{token:string}> = ( { token } ) => {
                     </label>
                 </div>
                 <div className="mb-3 mt-3">
-                    <label className="form-label"> Horario Inicio
-                        <input type="text" 
+                    <label className="form-group"> Horario Inicio
+                        <input type="time" 
                         className="form-control"
                         ref={inputHorarioInicio}
-                        placeholder="hh:mm"
                         onKeyUp={handleKeyUp}
                         />
                     </label>
                 </div>
                 <div className="mb-3 mt-3">
-                    <label className="form-label"> Horario Cierre
-                        <input type="text" 
+                    <label className="form-group"> Horario Cierre
+                        <input type="time" 
                         className="form-control"
                         ref={inputHorarioFin}
-                        placeholder="hh:mm"
                         onKeyUp={handleKeyUp}
                         />
                     </label>
                 </div>
                 <div className="mb-3 mt-3">
-                    <label className="form-label"> Estado
-                        <input type="text" 
-                        className="form-control"
-                        ref={inputEstado}
-                        placeholder="Habilitada"
-                        onKeyUp={handleKeyUp}
-                        />
-                    </label>
-                </div>
+            <label className="form-label">
+              Estado
+              <select
+                className="form-control"
+                value={estado}
+                onChange={(e) => setEstado(e.target.value)}
+              >
+                <option value="Habilitada">Habilitada</option>
+                <option value="Deshabilitada">Deshabilitada</option>
+              </select>
+            </label>
+          </div>
                 <button
                             type="button" 
                             className="btn btn-dark"
