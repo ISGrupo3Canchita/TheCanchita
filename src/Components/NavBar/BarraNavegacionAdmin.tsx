@@ -19,7 +19,7 @@ export const BarraNavegacionAdministrador: React.FC<navBarProps> = ({ cambio, no
     }
     return (
         <>
-            <nav className="navbar navbar-expand-sm navbar-light" style={{background:"#ffe0b3"}}>
+            <nav className="navbar navbar-expand-sm navbar-light" style={{background:"#fa5757"}}>
                 <div className="container ">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Logo_River_Plate.png" alt="RiverPlate" width="30" height="24"/>
                     <div className="collapse navbar-collapse" id="mynavbar">

@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { UsuarioContexto } from "../../Context/UsuarioContexto";
 
 type navBarProps = { 
@@ -9,6 +9,8 @@ type navBarProps = {
 
 export const BarraNavegacion: React.FC<navBarProps> = ({ cambio, nombre, rol }) => {
     const {setUsuario} = useContext(UsuarioContexto);
+    const [fondoUser, setfondoUser] = useState<string>('#ace1e9')
+
     const handlerCanchas = () => {
         cambio('Canchas');
     };
@@ -18,9 +20,13 @@ export const BarraNavegacion: React.FC<navBarProps> = ({ cambio, nombre, rol }) 
     const handlerlogout = ()=>{
         setUsuario({id:'',nombre:'', rol:'', token:'',email:'',telefono:'',codigoRespuesta:0,cantidadReservas:0});
     }
+
+    useEffect(()=>{
+        rol === 'Usuario' ? (setfondoUser('#ace1e9'))  : (setfondoUser('#8e7cc3')) 
+    })
     return (
         <>
-            <nav className="navbar navbar-expand-sm navbar-light" style={{background:"#ffe0b3"}}>
+            <nav className="navbar navbar-expand-sm navbar-light" style={{background: fondoUser}}>
                 <div className="container ">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Logo_River_Plate.png" alt="RiverPlate" width="30" height="24"/>
                     <div className="collapse navbar-collapse" id="mynavbar">
