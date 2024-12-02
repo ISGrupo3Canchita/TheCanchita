@@ -15,8 +15,9 @@ export const PaginaAdministrador  = () => {
     const cambioLista= (lista:string)=>{
        setLista(lista)
     }
-    const cambioRol=(id: string,rol:string)=>{
-        cambioRolUsuario(id,rol,usuario.token)
+    const cambioRol= async(id: string,rol:string)=>{
+        await cambioRolUsuario(id,rol,usuario.token)
+
         verUsuarios();
     }
 

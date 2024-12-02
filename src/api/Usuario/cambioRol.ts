@@ -7,5 +7,5 @@ export const cambioRolUsuario = async(id:string,rol:string,token : string)=>{
             Authorization: `Bearer `+token
         }
     })
-    return response.status
+    // return response.status
 }
