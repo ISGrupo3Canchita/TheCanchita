@@ -21,22 +21,26 @@ export const CanchaCreate : React.FC<{token:string}> = ( { token } ) => {
 
 
     const handlerBotonCrear = async () => {
-        if (!(inputNombreRef && inputDireccionRef && inputHorarioInicio && inputHorarioFin )) {
+        if (!(inputNombreRef.current!.value && inputDireccionRef.current!.value && inputHorarioInicio.current!.value
+             && inputHorarioFin.current!.value )) {
             alert("Complete todos los campos");
         }
-        const cancha: Cancha = {
-            id              : "",
-            nombreCancha    : inputNombreRef.current!.value,
-            direccion       : inputDireccionRef.current!.value,
-            horarioInicio   : inputHorarioInicio.current!.value,
-            horarioFin      : inputHorarioFin.current!.value,
-            estado          : estado
+        else {
+            const cancha: Cancha = {
+                id              : "",
+                nombreCancha    : inputNombreRef.current!.value,
+                direccion       : inputDireccionRef.current!.value,
+                horarioInicio   : inputHorarioInicio.current!.value,
+                horarioFin      : inputHorarioFin.current!.value,
+                estado          : estado
+            }
+            console.log(cancha);
+            
+            const respuesta = await CrearCancha(cancha, token);
+            setMensaje(respuesta);
+            console.log(mensaje);
         }
-        console.log(cancha);
         
-        const respuesta = await CrearCancha(cancha, token);
-        setMensaje(respuesta);
-        console.log(mensaje);
         
     }
 
