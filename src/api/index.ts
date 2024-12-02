@@ -16,12 +16,9 @@ import { cambioRolUsuario } from "./Usuario/cambioRol";
 
 export { apiCancha, apiReserva,apiUsuario,
 
-        CanchasHabilitadas, 
-        cancelaReserva, listaReservas, reservasPorEstado, 
+        CanchasHabilitadas,CrearCancha,  
+        cancelaReserva, listaReservas, ReservasPorEstado, 
         Ingresar, Registrar,listaReservasParaOperador, cambioRolUsuario,
 
-        CanchasHabilitadas, CrearCancha, 
-        cancelaReserva, listaReservas, ReservasPorEstado, 
-        Ingresar, Registrar,listaReservasParaOperador
 
     }
