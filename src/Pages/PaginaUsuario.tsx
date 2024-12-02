@@ -7,7 +7,7 @@ import { ReservaTipo } from "../Model";
 
 export const PaginaUsuario = () =>{
     const {usuario} = useContext(UsuarioContexto);
-    const [cualLista, setCualLista]=useState<String>('Reservas');
+    const [cualLista, setCualLista]=useState<string>('Reservas');
     const [reservas, setReservas] = useState<ReservaTipo[]>([])
 
     const verReservas = async()=>{
@@ -18,7 +18,7 @@ export const PaginaUsuario = () =>{
         setCualLista(nombre)
     }
 
-    const cancelar = async(idReserva:String)=>{
+    const cancelar = async(idReserva:string)=>{
         await cancelaReserva(idReserva,'Cancelada',usuario.token);
         setCualLista('Reservas')
         verReservas()

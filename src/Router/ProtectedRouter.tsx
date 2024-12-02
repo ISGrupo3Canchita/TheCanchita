@@ -10,7 +10,6 @@ export const ProtectedRouter=()=>{
 
     return (
         <>
-            {console.log("EN PROTECTER")}
             { usuario.rol ==='' ? (
                 <Navigate to='/'/>
             ):(

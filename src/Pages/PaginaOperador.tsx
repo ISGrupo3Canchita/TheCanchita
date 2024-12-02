@@ -1,8 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { BarraNavegacion, Canchas,ListadoReserva}  from "../Components";
 import { UsuarioContexto } from "../Context/UsuarioContexto";
-import { cancelaReserva, reservasPorEstado } from "../api";
-import { Cancha } from "../Model/Cancha";
+import { cancelaReserva, listaReservasParaOperador } from "../api";
 import { ReservaTipo } from "../Model/ReservaTipo";
 
 export const PaginaOperador = () => {
@@ -11,28 +10,24 @@ export const PaginaOperador = () => {
     const [cualLista, setCualLista]= useState<String>('Reservas');
     // const [estado, setEstado] = useState<String>('Pendiente');
     const [reservas,setReservas] = useState<ReservaTipo[]>([]);
-    const [canchas,setCanchas]=useState<Cancha[]>([]);
     
-    const cambioLista =(nombre:String)=>{
+    const cambioLista =(nombre:string)=>{
         setCualLista(nombre)
     }
   
-    const cancelar = async(idReserva:String)=>{
+    const cancelar = async(idReserva:string)=>{
         await cancelaReserva(idReserva,'Cancelada',usuario.token);
-        const listaReserva:ReservaTipo[] = await reservasPorEstado('Pendiente',usuario.token);
-        setReservas(listaReserva);
+        verReservas();
     }
     
     const verReservas = async () => {
-        const listaReserva:ReservaTipo[]= await reservasPorEstado('Pendiente',usuario.token);
+        const listaReserva:ReservaTipo[]= await listaReservasParaOperador(usuario.token);
         setReservas(listaReserva)
     }
 
-    const confirmar = async(idReserva:String)=>{
-        // setEstado('Reservada');
+    const confirmar = async(idReserva:string)=>{
         await cancelaReserva(idReserva,'Reservada',usuario.token);
-        const listaReserva:ReservaTipo[] = await reservasPorEstado('Pendiente',usuario.token);
-        setReservas(listaReserva);
+        verReservas();
     }
 
     useEffect(()=>{

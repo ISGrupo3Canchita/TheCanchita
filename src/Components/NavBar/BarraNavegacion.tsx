@@ -9,59 +9,49 @@ type navBarProps = {
 
 export const BarraNavegacion: React.FC<navBarProps> = ({ cambio, nombre, rol }) => {
     const {setUsuario} = useContext(UsuarioContexto);
-
     const handlerCanchas = () => {
         cambio('Canchas');
     };
     const handlerReservas = () => {
         cambio('Reservas');
     };
-
     const handlerlogout = ()=>{
-        setUsuario({id:'',nombre:'', rol:'', token:'',email:'',telefono:'',codigoRespuesta:0});
+        setUsuario({id:'',nombre:'', rol:'', token:'',email:'',telefono:'',codigoRespuesta:0,cantidadReservas:0});
     }
-
     return (
-        <div className="container-fluid text-center">
-            <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
-                <div className="container-fluid">
-                    <span className="navbar-brand active">{nombre}</span>
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
+        <>
+            <nav className="navbar navbar-expand-sm navbar-light" style={{background:"#ffe0b3"}}>
+                <div className="container ">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Logo_River_Plate.png" alt="RiverPlate" width="30" height="24"/>
                     <div className="collapse navbar-collapse" id="mynavbar">
                         <ul className="navbar-nav me-auto">
                             {rol === 'Usuario' ? (
                                 <>
                                     <li className="nav-item">
-                                    <button className="nav-link btn" onClick={handlerReservas}>
-                                        Mis Reservas
-                                    </button>
+                                        <button className="nav-link btn" onClick={handlerReservas}>Mis Reservas</button>
                                     </li>
                                     <li className="nav-item">
-                                        <button className="nav-link btn" onClick={handlerCanchas}>
-                                            Canchas
-                                        </button>
+                                        <button className="nav-link btn" onClick={handlerCanchas}>Canchas</button>
                                     </li>
                                 </>
                             ):(
-                               <>
-                                <li className="nav-item">
-                                    <button className="nav-link btn" onClick={handlerReservas}>
-                                        Lista Pendiente
-                                    </button>
+                                <>
+                                    <li className="nav-item">
+                                        <button className="nav-link btn" onClick={handlerReservas}>Lista Pendiente</button>
                                     </li>
-                               </> 
+                                </> 
                             )}
-                            <li className="nav-item">
-                                <button className="nav-link btn" onClick={handlerlogout}>
-                                    Cerrar Sesion
-                                </button>
-                            </li>
                         </ul>
                     </div>
                 </div>
+                <div className="container-fluid d-flex justify-content-end align-items-center">
+                    <span className="navbar-text me-2">{nombre}</span>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/56/Escudo_de_Racing_Club_%282014%29.svg" alt="RacingClub" width="30" height="24"/>
+                    <button className="nav-link btn ms-2" onClick={handlerlogout}>Cerrar Sesion</button>
+                </div>
             </nav>
-        </div>
+        </>
+        
+        
     );
 };
