@@ -6,6 +6,7 @@ export type UsuarioTipo ={
     rol:string,
     token:string,
     telefono:string,
+    cantidadReservas:number,
     codigoRespuesta:number,
     cantidadReservas:number,
 
