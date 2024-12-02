@@ -12,9 +12,16 @@ import { ReservasPorEstado } from "./Reserva/ReservasPorEstados";
 import { Ingresar } from "./Usuario/Ingresar";
 import { Registrar } from "./Usuario/Registrar";
 import { listaReservasParaOperador } from "./Reserva/ListaReservasParaOperador";
+import { cambioRolUsuario } from "./Usuario/cambioRol";
 
 export { apiCancha, apiReserva,apiUsuario,
+
+        CanchasHabilitadas, 
+        cancelaReserva, listaReservas, reservasPorEstado, 
+        Ingresar, Registrar,listaReservasParaOperador, cambioRolUsuario,
+
         CanchasHabilitadas, CrearCancha, 
         cancelaReserva, listaReservas, ReservasPorEstado, 
         Ingresar, Registrar,listaReservasParaOperador
+
     }

@@ -52,7 +52,6 @@ export const Reservar: React.FC = () => {
         }
     };
 
-    
     const handleBotonVolver = () =>{
         navigate('/canchita')
     }

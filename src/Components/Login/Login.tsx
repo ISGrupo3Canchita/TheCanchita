@@ -9,11 +9,21 @@ export const Login = () => {
     const inputContraseñaRef = useRef<HTMLInputElement>(null);
     const navigate = useNavigate()
 
-    const handleIngreso = async() => {
+    const sendIngreso = async()=>{
         const usuarioRespuesta= await Ingresar(inputNombreRef.current!.value,inputContraseñaRef.current!.value);
         setUsuario(usuarioRespuesta)
         navigate('/canchita')
     }
+    const handleIngreso = () => {
+        (inputNombreRef.current!.value && inputContraseñaRef.current!.value) === '' ?
+            (alert("Por favor, complete TODOS los campos")):
+            (
+                sendIngreso()
+                // navigate('/error')
+                
+            );
+    }
+
 
     const handleKeyUp = (e: React.KeyboardEvent) => {
         if (e.key === "Enter") {

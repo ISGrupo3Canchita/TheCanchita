@@ -1,6 +1,6 @@
 import { useRef } from "react"
 import { UserRegistro } from "../../Model/UserRegistro";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Registrar } from "../../api";
 
 export const Registro =()=>{
@@ -9,25 +9,36 @@ export const Registro =()=>{
     const inputEmailRef = useRef<HTMLInputElement>(null);
     const inputTelefonoRef = useRef<HTMLInputElement>(null);
     const inputContraseñaRef = useRef<HTMLInputElement>(null);
-
+    const navigate =useNavigate();
 
     const handlerBotonRegistro = ()=>{
+        (inputNombreRef.current!.value &&
+        inputContraseñaRef.current!.value &&
+        inputEmailRef.current!.value &&
+        inputTelefonoRef.current!.value) === '' ?
+            (alert("Por favor, complete TODOS los campos") ):
+            (sendRegistro())
+    };
+
+    const sendRegistro = ()=>{
         const userRegistro:UserRegistro = {
             nombreUsuario:inputNombreRef.current!.value,
             email:inputEmailRef.current!.value,
             TelefonoUsuario:inputTelefonoRef.current!.value,
             contraseñaUsuario:inputContraseñaRef.current!.value,
         }
-        const respuestaRegistro = Registrar(userRegistro)
-        console.log(respuestaRegistro)
-    }
+        Registrar(userRegistro)
+        alert("Gracias, "+userRegistro.nombreUsuario+", por Registrarse.")
+        navigate('/')
+    };
+
     const handleKeyUp = (e : React.KeyboardEvent) => {
         if (e.key === "Enter") {
             if (inputNombreRef.current!.value && inputContraseñaRef.current!.value && inputEmailRef.current!.value
                 && inputTelefonoRef.current!.value) {
               handlerBotonRegistro();
             } else {
-              alert("Por favor, complete los campos");
+              alert("Por favor, complete TODOS los campos");
             }
           }
         };
@@ -81,9 +92,8 @@ export const Registro =()=>{
                         <button
                             type="button" 
                             className="btn btn-dark"
-                            onClick={handlerBotonRegistro}
-                        >
-                            Registrarme
+                            onClick={handlerBotonRegistro}>
+                        Registrarme
                         </button>
                     </form>
                     <p><Link className="link-opacity-50-hover" to='/'>Ya Estoy Registrado</Link></p>
