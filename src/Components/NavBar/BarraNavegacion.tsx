@@ -45,6 +45,9 @@ export const BarraNavegacion: React.FC<navBarProps> = ({ cambio, nombre, rol }) 
                                     <li className="nav-item">
                                         <button className="nav-link btn" onClick={handlerReservas}>Lista Pendiente</button>
                                     </li>
+                                    <li className="nav-item">
+                                        <button className="nav-link btn" onClick={handlerCanchas}>Canchas</button>
+                                    </li>
                                 </> 
                             )}
                         </ul>

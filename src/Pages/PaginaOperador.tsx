@@ -13,6 +13,7 @@ export const PaginaOperador = () => {
     
     const cambioLista =(nombre:string)=>{
         setCualLista(nombre)
+        nombre === 'Reservas' ? verReservas() : ''
     }
   
     const cancelar = async(idReserva:string)=>{

@@ -38,7 +38,6 @@ export const CanchaCreate : React.FC<{token:string}> = ( { token } ) => {
             
             const respuesta = await CrearCancha(cancha, token);
             setMensaje(respuesta);
-            console.log(mensaje);
         }
         
         
